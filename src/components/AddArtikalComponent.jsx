@@ -11,11 +11,13 @@ class AddArtikalComponent extends Component {
             opis: '',
             cena: '',
             putanjaSlike:'',
+            prodavacId:'',
         }
         this.changeNazivHandler = this.changeNazivHandler.bind(this);
         this.changeOpisHandler = this.changeOpisHandler.bind(this);
         this.changeCenaHandler = this.changeCenaHandler.bind(this);
         this.changePutanjaSlike = this.changePutanjaSlike.bind(this);
+        this.changeProdavacIdHandler = this.changeProdavacIdHandler.bind(this);
 
         this.saveArtikal = this.saveArtikal.bind(this);
 }
@@ -23,7 +25,7 @@ class AddArtikalComponent extends Component {
 saveArtikal = (e) =>{
     e.preventDefault();
     let artikal = {naziv: this.state.naziv, opis: this.state.opis, cena: this.state.cena,
-        putanjaSlike: this.state.putanjaSlike
+        putanjaSlike: this.state.putanjaSlike, prodavacId: this.state.prodavacId
         }
         console.log('Artikal => ' + JSON.stringify(artikal));
 
@@ -46,6 +48,10 @@ changeCenaHandler= (event) =>{
 
 changePutanjaSlike= (event) =>{
     this.setState({putanjaSlike: event.target.value});
+}
+
+changeProdavacIdHandler= (event) =>{
+    this.setState({prodavacId: event.target.value});
 }
 
 cancel(){
@@ -81,6 +87,11 @@ cancel(){
                                         <label>Putanja slike</label>
                                         <input placeholder="Putanja Slike" name="putanjaSlike" className="form-control"
                                             value={this.state.putanjaSlike} onChange={this.changePutanjaSlike}/>       
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Prodavac ID</label>
+                                        <input placeholder="Id of prodavca" name="prodavacId" className="form-control"
+                                            value={this.state.prodavacId} onChange={this.changeProdavacIdHandler}/>       
                                     </div>
         
                                     <button className="btn btn-success" onClick={this.saveArtikal}>Dodaj</button>

@@ -18,9 +18,14 @@ componentDidMount(){
         this.setState({artikli: res.data});
     });
 }
+nadjiId = (e) =>{
+    e.preventDefault();
+    let prodavac = {s:this.state.artikli.prodavac}
+        console.log('prodavac => ' + JSON.stringify(this.state.artikli.prodavac));
 
-
-
+        
+}
+  
 cancel(){
     this.props.history.push('/artikli');
 }
@@ -42,7 +47,8 @@ cancel(){
                         </div><br></br>
                         <div className="row" width="100%">
                             <label style={{color:"red"}}>Putanja do slike : {this.state.artikli.putanjaSlike}</label>
-                        </div>
+                        </div><br></br>
+                       
                     </div>
                 </div>
             </div>

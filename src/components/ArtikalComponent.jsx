@@ -13,12 +13,17 @@ class ArtikalComponent extends React.Component{
         this.addArtikal = this.addArtikal.bind(this);
         this.editArtikal = this.editArtikal.bind(this);
         this.deleteArtikal = this.deleteArtikal.bind(this);
+        this.viewArtikal = this.viewArtikal.bind(this);
     }
 
     componentDidMount(){
         ArtikalService.getArtikle().then((response) =>{
             this.setState({artikli:response.data})
         });
+    }
+
+    viewArtikal(id){
+        this.props.history.push(`viewArtikal/${id}`);
     }
 
     deleteArtikal(id){
@@ -70,6 +75,7 @@ class ArtikalComponent extends React.Component{
                                     <td>
                                         <button onClick={ () => this.editArtikal(artikal.id)} className="btn btn-info">Update</button>
                                         <button style={{marginLeft: "10px"}} onClick={ () => this.deleteArtikal(artikal.id)} className="btn btn-danger">Delete</button>
+                                        <button style={{marginLeft: "10px"}} onClick={ () => this.viewArtikal(artikal.id)} className="btn btn-info">View</button>
 
                                     </td>
                                 </tr>

@@ -7,6 +7,8 @@ import RegistracijaProdavcaComponent from './components/RegistracijaProdavcaComp
 import Login from './components/Login';
 import AddArtikalComponent from './components/AddArtikalComponent';
 import UpdateArtikalComponent from './components/UpdateArtikalComponent';
+import ViewArtikalComponent from './components/ViewArtikalComponent';
+
 
 
 
@@ -26,6 +28,8 @@ function App() {
                           <Route path="/login" component={Login}></Route>
                           <Route path="/addArtikal" component={AddArtikalComponent}></Route>
                           <Route path="/updateArtikal/:id" component={UpdateArtikalComponent}></Route>
+                          <Route path="/viewArtikal/:id" component={ViewArtikalComponent}></Route>
+
 
 
                     </Switch>

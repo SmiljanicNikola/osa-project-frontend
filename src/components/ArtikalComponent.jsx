@@ -10,7 +10,8 @@ class ArtikalComponent extends React.Component{
             artikli:[]
         }
 
-        this.addUser = this.addUser.bind(this);
+        this.addArtikal = this.addArtikal.bind(this);
+        this.editArtikal = this.editArtikal.bind(this);
     }
 
     componentDidMount(){
@@ -19,8 +20,11 @@ class ArtikalComponent extends React.Component{
         });
     }
 
-    addUser(){
-        this.props.history.push('/register');
+    editArtikal(id){
+        this.props.history.push(`/updateArtikal/${id}`);
+    }
+    addArtikal(){
+        this.props.history.push('/addArtikal');
     }
 
 
@@ -37,7 +41,6 @@ class ArtikalComponent extends React.Component{
                 <table className = "table table-striped">
                     <thead>
                         <tr>
-                            <td>Id</td>
                             <td>Naziv</td>
                             <td>Opis</td>
                             <td>Cena</td>
@@ -54,11 +57,13 @@ class ArtikalComponent extends React.Component{
                             this.state.artikli.map(
                                 artikal=>
                                 <tr key = {artikal.id}>
-                                    <td> {artikal.id}</td>
                                     <td> {artikal.naziv}</td>
                                     <td>{artikal.opis}</td>
                                     <td>{artikal.cena}</td>
                                     <td>{artikal.putanjaSlike}</td>
+                                    <td>
+                                        <button onClick={ () => this.editArtikal(artikal.id)} className="btn btn-info">Update</button>
+                                    </td>
                                 </tr>
                             )
 
@@ -67,6 +72,7 @@ class ArtikalComponent extends React.Component{
 
                 </table>
 
+            <button className="btn btn-success" onClick={this.addArtikal}>Dodaj Artikal</button>
 
             </div>
         )

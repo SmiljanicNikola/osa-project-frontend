@@ -7,8 +7,16 @@ class ArtikalService{
         return axios.get(ARTIKLI_REST_API_URL);
     }
 
-    createArtikle(artikal){
-        return axios.post(ARTIKLI_REST_API_URL);
+    createArtikal(artikal){
+        return axios.post(ARTIKLI_REST_API_URL,artikal);
+    }
+
+    getArtikalById(artikalId){
+        return axios.get(ARTIKLI_REST_API_URL + '/' + artikalId)
+    }
+
+    updateArtikal(artikal, artikalId){
+        return axios.put(ARTIKLI_REST_API_URL + '/' + artikalId, artikal);
     }
 }
 

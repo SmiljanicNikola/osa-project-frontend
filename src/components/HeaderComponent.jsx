@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
+import { TokenService } from "../services/TokenService";
+import { Button, Nav, Navbar } from "react-bootstrap";
+import { AuthenticationService } from "../services/AuthenticationService";
 
 class HeaderComponent extends Component{
     constructor(props){
@@ -20,7 +24,13 @@ class HeaderComponent extends Component{
                 <div><a href="registracijakupca" className="navbar-brand">  RegistracijaKupac  </a></div>
                 <div><a href="registracijaprodavca" className="navbar-brand">  RegistracijaProdavac  </a></div>
 
-
+                {TokenService.getToken() ? (
+                <Button onClick={() => AuthenticationService.logout()} >Log out</Button>
+                ) : (
+                <Nav.Link as={Link} to="/login">
+                Log in
+                </Nav.Link>
+                )}
                 </nav>
                 </header>
             </div>

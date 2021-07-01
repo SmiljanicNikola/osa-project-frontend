@@ -100,6 +100,7 @@ cancel(){
                                     </div>
         
                                     <button className="btn btn-success" onClick={this.updateArtikal}>Izmeni</button>
+                                    
                                 </form>
                             </div>
                         </div>

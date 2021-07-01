@@ -18,6 +18,10 @@ class ArtikalService{
     updateArtikal(artikal, artikalId){
         return axios.put(ARTIKLI_REST_API_URL + '/' + artikalId, artikal);
     }
+
+    deleteArtikal(artikalId){
+        return axios.delete(ARTIKLI_REST_API_URL + '/' + artikalId);
+    }
 }
 
 

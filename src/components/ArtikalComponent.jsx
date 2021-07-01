@@ -12,6 +12,7 @@ class ArtikalComponent extends React.Component{
 
         this.addArtikal = this.addArtikal.bind(this);
         this.editArtikal = this.editArtikal.bind(this);
+        this.deleteArtikal = this.deleteArtikal.bind(this);
     }
 
     componentDidMount(){
@@ -20,6 +21,11 @@ class ArtikalComponent extends React.Component{
         });
     }
 
+    deleteArtikal(id){
+        ArtikalService.deleteArtikal(id).then(res => {
+            this.setState({artikli: this.state.artikli.filter(artikli => artikli.id !== id)});
+        });
+    }
     editArtikal(id){
         this.props.history.push(`/updateArtikal/${id}`);
     }
@@ -63,6 +69,8 @@ class ArtikalComponent extends React.Component{
                                     <td>{artikal.putanjaSlike}</td>
                                     <td>
                                         <button onClick={ () => this.editArtikal(artikal.id)} className="btn btn-info">Update</button>
+                                        <button style={{marginLeft: "10px"}} onClick={ () => this.deleteArtikal(artikal.id)} className="btn btn-danger">Delete</button>
+
                                     </td>
                                 </tr>
                             )

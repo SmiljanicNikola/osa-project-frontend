@@ -8,12 +8,14 @@ import Login from './components/Login';
 import AddArtikalComponent from './components/AddArtikalComponent';
 import UpdateArtikalComponent from './components/UpdateArtikalComponent';
 import ViewArtikalComponent from './components/ViewArtikalComponent';
+import {AuthenticationService} from './services/AuthenticationService';
+import HomeComponent from './components/HomeComponent';
+
 
 
 
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
                           <Route path="/addArtikal" component={AddArtikalComponent}></Route>
                           <Route path="/updateArtikal/:id" component={UpdateArtikalComponent}></Route>
                           <Route path="/viewArtikal/:id" component={ViewArtikalComponent}></Route>
+                          <Route path="/home" component={HomeComponent}></Route>
+
 
 
 

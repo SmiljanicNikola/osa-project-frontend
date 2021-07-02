@@ -7,24 +7,29 @@ export const AuthenticationService = {
   login,
   logout,
   getRole,
+  getUsername,
 };
 
 async function login(userCredentials) {
   try {
     const response = await SprintsAxiosClient.post(
-      "http://localhost:8080/api/korisnici/login2",
+      "http://localhost:8080/api/korisnici/login",
       userCredentials
     );
-    const decoded_token = TokenService.decodeToken(response.data);
+    const decoded_token = TokenService.decodeToken(response.data.accessToken);
     if (decoded_token) {
-      TokenService.setToken(response.data);
+      TokenService.setToken(response.data.accessToken);
       window.location.assign("/");
+      console.log(response.data.username);
+
     } else {
       console.error("Invalid token");
     }
   } catch (error) {
     console.error(error);
   }
+  //console.log(TokenService.getToken());
+
 }
 
 function logout() {
@@ -41,3 +46,16 @@ function getRole() {
     return null;
   }
 }
+function getUsername() {
+  const token = TokenService.getToken();
+  const decoded_token = token ? TokenService.decodeToken(token) : null;
+  if (decoded_token) {
+    return decoded_token.sub
+  } else {
+    return null;
+  }
+}
+/*getCurrentUser() {
+  return JSON.parse(localStorage.getItem('token'));;
+}
+*/

@@ -1,5 +1,7 @@
 import React from 'react'
 import ArtikalService from '../services/ArtikalService'
+import { AuthenticationService } from "../services/AuthenticationService";
+
 
 
 class ArtikalComponent extends React.Component{
@@ -38,15 +40,16 @@ class ArtikalComponent extends React.Component{
         this.props.history.push('/addArtikal');
     }
 
-
+   
     render(){
         return (
+            
             <div>
                 <h1 className="text-center"> Lista Artikalaa </h1>
                 {/* <button className="btn btn-primary" >Login</button>
                 <button className="btn btn-primary" onClick={this.addUser}>Register</button> */}
                 <div className="row">
-                    
+                Uloga:{AuthenticationService.getRole()};
 
                 </div>
                 <table className = "table table-striped">

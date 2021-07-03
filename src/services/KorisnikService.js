@@ -5,7 +5,7 @@ const KUPAC_REST_API_URL = 'http://localhost:8080/api/korisnici/kupac';
 const PRODAVAC_REST_API_URL = 'http://localhost:8080/api/korisnici/prodavac';
 
 class KorisnikService{
-    getArtikle(){
+    getKorisnike(){
         return axios.get(KORISNICI_REST_API_URL);
     }
 
@@ -15,6 +15,15 @@ class KorisnikService{
     createProdavac(prodavac){
         return axios.post(PRODAVAC_REST_API_URL,prodavac);
     }
+
+    getUserById(korisnikId){
+        return axios.get(KORISNICI_REST_API_URL + '/' + korisnikId)
+    }
+
+    updateUser(user, korisnikId){
+        return axios.put(KORISNICI_REST_API_URL + '/' + korisnikId, user);
+    }
+
 
 }
 

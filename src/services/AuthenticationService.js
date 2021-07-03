@@ -50,12 +50,9 @@ function getUsername() {
   const token = TokenService.getToken();
   const decoded_token = token ? TokenService.decodeToken(token) : null;
   if (decoded_token) {
-    return decoded_token.sub
+    return decoded_token.sub.username
   } else {
     return null;
   }
 }
-/*getCurrentUser() {
-  return JSON.parse(localStorage.getItem('token'));;
-}
-*/
+

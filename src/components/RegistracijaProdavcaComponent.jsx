@@ -15,6 +15,7 @@ class RegistracijaKupcaComponent extends Component {
             email: '',
             adresa: '',
             naziv: '',
+            repeatPassword:'',
         }
         this.changeImeHandler = this.changeImeHandler.bind(this);
         this.changePrezimeHandler = this.changePrezimeHandler.bind(this);
@@ -24,6 +25,8 @@ class RegistracijaKupcaComponent extends Component {
         this.changeEmailHandler = this.changeEmailHandler.bind(this);
         this.changeAdresaHandler = this.changeAdresaHandler.bind(this);
         this.changeNazivHandler = this.changeNazivHandler.bind(this);
+        this.changerepeatPasswordHandler = this.changerepeatPasswordHandler.bind(this);
+
         
         this.saveProdavac = this.saveProdavac.bind(this);
     
@@ -31,6 +34,15 @@ class RegistracijaKupcaComponent extends Component {
 
 saveProdavac = (e) =>{
     e.preventDefault();
+    let test={repeatPassword:this.state.repeatPassword, password:this.state.password}
+    
+    if(test.repeatPassword != test.password){
+        console.log('Lozinke se ne podudaraju!');
+    }
+    else if(test.password.length < 3){
+        console.log('Lozinka je previse kratka!')
+    }
+    else{
     let prodavac = {ime: this.state.ime, prezime: this.state.prezime, username: this.state.username,
         password: this.state.password, poslujeOd: this.state.poslujeOd, email: this.state.email, adresa: this.state.adresa,
         naziv: this.state.naziv
@@ -40,6 +52,7 @@ saveProdavac = (e) =>{
         KorisnikService.createProdavac(prodavac).then(res=>{
             this.props.history.push('/api/korisnici/prodavac')
         });
+    }
 }
 
 changeImeHandler= (event) =>{
@@ -71,6 +84,10 @@ changePoslujeOdHandler= (event) =>{
 }
 changeNazivHandler= (event) =>{
     this.setState({naziv: event.target.value});
+}
+
+changerepeatPasswordHandler= (event) =>{
+    this.setState({repeatPassword: event.target.value});
 }
 
 cancel(){
@@ -115,6 +132,14 @@ cancel(){
 
                                             
                                     </div>
+
+                                    <div className="form-group">
+                                        <label>Ponovljen password:</label>
+                                        <input placeholder="Ponovljen password" name="repeatPassword" type="password" className="form-control"
+                                            value={this.state.repeatPassword} onChange={this.changerepeatPasswordHandler}/>
+    
+                                    </div>
+
                                     <div className="form-group">
                                         <label>Posluje Od:</label>
                                         <input placeholder="Posluje Od" name="poslujeOd" className="form-control"

@@ -9,7 +9,8 @@ class HeaderComponent extends Component{
         super(props)
 
         this.state = {
-
+            username: AuthenticationService.getUsername(),
+            role: AuthenticationService.getRole(),
         }
     }
 
@@ -20,10 +21,11 @@ class HeaderComponent extends Component{
                 <header>
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                 <div><a href="home" className="navbar-brand">  Home  </a></div>
-
+                <div><a href="licnipodaci" className="navbar-brand">  LicniPodaci  </a></div>
                 <div><a href="artikli" className="navbar-brand">  Artikli  </a></div>
                 <div><a href="registracijakupca" className="navbar-brand">  RegistracijaKupac  </a></div>
                 <div><a href="registracijaprodavca" className="navbar-brand">  RegistracijaProdavac  </a></div>
+                <div><a href="svikorisnici" className="navbar-brand">  Users  </a></div>
 
                 {TokenService.getToken() ? (
                 <Button onClick={() => AuthenticationService.logout()} >Log out</Button>

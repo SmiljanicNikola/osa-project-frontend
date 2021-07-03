@@ -12,19 +12,30 @@ class RegistracijaKupcaComponent extends Component {
             username: '',
             password: '',
             adresa: '',
+            repeatPassword: '',
         }
         this.changeImeHandler = this.changeImeHandler.bind(this);
         this.changePrezimeHandler = this.changePrezimeHandler.bind(this);
         this.changeUsernameHandler = this.changeUsernameHandler.bind(this);
         this.changePasswordHandler = this.changePasswordHandler.bind(this);
         this.changeAdresaHandler = this.changeAdresaHandler.bind(this);
-        
+        this.changerepeatPasswordHandler = this.changerepeatPasswordHandler.bind(this);
+
         this.saveKupac = this.saveKupac.bind(this);
     
 }
 
 saveKupac = (e) =>{
     e.preventDefault();
+    let test={repeatPassword:this.state.repeatPassword, password:this.state.password}
+    
+    if(test.repeatPassword != test.password){
+        console.log('Lozinke se ne podudaraju!');
+    }
+    else if(test.password.length < 3){
+        console.log('Lozinka je previse kratka!')
+    }
+    else{
     let kupac = {ime: this.state.ime, prezime: this.state.prezime, username: this.state.username,
         password: this.state.password, adresa: this.state.adresa
         }
@@ -33,6 +44,7 @@ saveKupac = (e) =>{
         KorisnikService.createKupac(kupac).then(res=>{
             this.props.history.push('/api/korisnici/kupac')
         });
+    }
 }
 
 changeImeHandler= (event) =>{
@@ -50,6 +62,11 @@ changeUsernameHandler= (event) =>{
 changePasswordHandler= (event) =>{
     this.setState({password: event.target.value});
 }
+
+changerepeatPasswordHandler= (event) =>{
+    this.setState({repeatPassword: event.target.value});
+}
+
 
 changeAdresaHandler= (event) =>{
     this.setState({adresa: event.target.value});
@@ -97,6 +114,13 @@ cancel(){
 
                                             
                                     </div>
+                                    <div className="form-group">
+                                        <label>Ponovljen password:</label>
+                                        <input placeholder="Ponovljen password" name="repeatPassword" className="form-control"
+                                            value={this.state.repeatPassword} onChange={this.changerepeatPasswordHandler}/>
+    
+                                    </div>
+
 
                                     <div className="form-group">
                                         <label>Adresa:</label>
@@ -104,7 +128,7 @@ cancel(){
                                             value={this.state.adresa} onChange={this.changeAdresaHandler}/>
     
                                     </div>
-                                  
+                            
                                     
                                     <button className="btn btn-success" onClick={this.saveKupac}>Save</button>
                                     <button className="btn btn-danger" onClick={this.cancel}>   Cancel</button>

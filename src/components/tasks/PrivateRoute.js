@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
-import AuthenticationService from "../services/AuthenticationService";
+import {AuthenticationService} from "../../services/AuthenticationService";
 
 export const PrivateRoute = ({ component: Component, roles, ...rest }) => (
   // Instanciraj rutu sa svim njenim elementima (...rest) ali uz dodatnu proveru autorizacije

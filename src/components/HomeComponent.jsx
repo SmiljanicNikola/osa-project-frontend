@@ -18,10 +18,6 @@ class HomeComponent extends React.Component{
             }
             
         };
-
-    
-
-
         axios.get('http://localhost:8080/api/korisnici/username', config).then(
             res => {
                 this.setState({
@@ -44,24 +40,24 @@ class HomeComponent extends React.Component{
     }
 
     render(){
-        Uloga:{AuthenticationService.getRole()};
-        if(this.state.username){
-            
-            let user
-            user = axios.get('http://localhost:8080/api/korisnici/username',);
-            return(
-                <h2> Hi {user.firstname} {user.lastname}</h2>
-            )
-        }
-        let username;
-        //username='milanm';
         return (
-        
-            <h3>Username:{AuthenticationService.getUsername()}<br></br>
-                Role:{AuthenticationService.getRole()};
-                <br></br></h3>
-            
-                )
+        <div>
+             <div className="card col-md-6 offset-md-3">
+                 <h2 className="text-center">Logged user details:</h2>
+                <div className="card-body">
+                <div className="row">
+                    <label style={{color:"black"}}>Username : {AuthenticationService.getUsername()}</label>
+                </div><br></br>
+                <div className="row">
+                    <label style={{color:"black"}}>Role : {AuthenticationService.getRole()}</label>
+                </div><br></br>
+               
+                <br></br>
+               
+            </div>
+        </div>
+    </div>    
+        )
         }
 
 

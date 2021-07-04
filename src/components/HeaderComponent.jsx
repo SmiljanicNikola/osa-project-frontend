@@ -26,6 +26,7 @@ class HeaderComponent extends Component{
                 <div><a href="registracijakupca" className="navbar-brand">  RegistracijaKupac  </a></div>
                 <div><a href="registracijaprodavca" className="navbar-brand">  RegistracijaProdavac  </a></div>
                 <div><a href="svikorisnici" className="navbar-brand">  Users  </a></div>
+                <div><a href="prodavci" className="navbar-brand">  Prodavci  </a></div>
 
                 {TokenService.getToken() ? (
                 <Button onClick={() => AuthenticationService.logout()} >Log out</Button>

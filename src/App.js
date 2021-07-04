@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import ArtikalComponent from './components/ArtikalComponent';
 import HeaderComponent from './components/HeaderComponent';
+import FooterComponent from './components/FooterComponent';
+
 import RegistracijaKupcaComponent from './components/RegistracijaKupcaComponent';
 import RegistracijaProdavcaComponent from './components/RegistracijaProdavcaComponent';
 import Login from './components/Login';
@@ -14,6 +16,8 @@ import UserInfoComponent from './components/UserInfoComponent';
 import UpdateUserComponent from './components/UpdateUserComponent';
 import {PrivateRoute} from "./components/tasks/PrivateRoute";
 import UserComponent from './components/UserComponent';
+import ProdavciComponent from './components/ProdavciComponent';
+import ViewArtikleProdavca from './components/ViewArtikleProdavca';
 
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
@@ -31,18 +35,30 @@ function App() {
                           <Route path="/registracijaprodavca" component={RegistracijaProdavcaComponent}></Route>
                           <Route path="/login" component={Login}></Route>
                           
-                        
+                          <Route path="/viewArtikle/:id" component={ViewArtikleProdavca}></Route>
                           <Route path="/viewArtikal/:id" component={ViewArtikalComponent}></Route>
                           <Route path="/updateKorisnik/:id" component={UpdateUserComponent}></Route>
-                          <Route path="/blockUser/:id" component={BlockUserComponent}></Route>
 
                           <Route path="/home" component={HomeComponent}></Route>
+
+                          <PrivateRoute
+                          exact
+                          path="/blockUser/:id"
+                          component={BlockUserComponent}
+                          roles={["ROLE_ADMINISTRATOR"]}
+                          />
 
                           <PrivateRoute
                           exact
                           path="/updateArtikal/:id"
                           component={UpdateArtikalComponent}
                           roles={["ROLE_PRODAVAC"]}
+                          />
+                           <PrivateRoute
+                          exact
+                          path="/prodavci"
+                          component={ProdavciComponent}
+                          roles={["ROLE_KUPAC"]}
                           />
                           <PrivateRoute
                           exact
@@ -71,8 +87,9 @@ function App() {
 
                     </Switch>
                 </div>
-              
         </Router>
+        <FooterComponent/>
+
     </div>
   );
 }

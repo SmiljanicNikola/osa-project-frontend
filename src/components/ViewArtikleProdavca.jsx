@@ -7,20 +7,19 @@ import { AuthenticationService } from "../services/AuthenticationService";
 
 
 
-class ArtikalComponent extends React.Component{
+class ViewArtikleProdavca extends React.Component{
 
     constructor(props){
         super(props)
         this.state = {
+            id: this.props.match.params.id,
             username: AuthenticationService.getUsername(),
             user: KorisnikService.getUserByUsername(AuthenticationService.getUsername()),
 
             artikli:[]
         }
 
-        this.addArtikal = this.addArtikal.bind(this);
-        this.editArtikal = this.editArtikal.bind(this);
-        this.deleteArtikal = this.deleteArtikal.bind(this);
+        
         this.viewArtikal = this.viewArtikal.bind(this);
     }
 
@@ -28,42 +27,25 @@ class ArtikalComponent extends React.Component{
         ArtikalService.getArtikle().then((response) =>{
             this.setState({artikli:response.data})
             user:KorisnikService.getUserByUsername(AuthenticationService.getUsername())
-            this.setState({artikli: this.state.artikli.filter(artikli => artikli.prodavac.korisnik.username == AuthenticationService.getUsername())})
+            this.setState({artikli: this.state.artikli.filter(artikli => artikli.prodavac.id == this.state.id)})
         });
-        KorisnikService.getUserByUsername(this.state.username).then( (res) =>{
-            let korisnik = res.data;
-            this.setState({id: korisnik.id,
-            });
-    
-        });
+        
     }
 
     viewArtikal(id){
         this.props.history.push(`viewArtikal/${id}`);
     }
 
-    deleteArtikal(id){
-        ArtikalService.deleteArtikal(id).then(res => {
-            this.setState({artikli: this.state.artikli.filter(artikli => artikli.id !== id)});
-        });
-    }
-    editArtikal(id){
-        this.props.history.push(`/updateArtikal/${id}`);
-    }
-    addArtikal(){
-        this.props.history.push('/addArtikal');
-    }
-
+    
    
     render(){
         return (
             
             <div>
-                <h1 className="text-center"> Lista Artikala od: {AuthenticationService.getUsername()}</h1>
+                <h1 className="text-center"> Lista Artikala izabranog prodavca:</h1>
                 {/* <button className="btn btn-primary" >Login</button>
                 <button className="btn btn-primary" onClick={this.addUser}>Register</button> */}
                 <div className="row">
-                Uloga:{AuthenticationService.getRole()};
                 </div>
                 <table className = "table table-striped">
                     <thead>
@@ -89,9 +71,7 @@ class ArtikalComponent extends React.Component{
                                     <td>{artikal.cena}</td>
                                     <td>{artikal.putanjaSlike}</td>
                                     <td>
-                                        <button onClick={ () => this.editArtikal(artikal.id)} className="btn btn-info">Update</button>
-                                        <button style={{marginLeft: "10px"}} onClick={ () => this.deleteArtikal(artikal.id)} className="btn btn-danger">Delete</button>
-                                        <button style={{marginLeft: "10px"}} onClick={ () => this.viewArtikal(artikal.id)} className="btn btn-info">View</button>
+                                        <button onClick={ () => this.editArtikal(artikal.id)} className="btn btn-warning">Dodaj u korpu</button>
 
                                     </td>
                                 </tr>
@@ -102,13 +82,11 @@ class ArtikalComponent extends React.Component{
 
                 </table>
 
-            <button className="btn btn-success" onClick={this.addArtikal}>Dodaj Artikal</button>
-
             </div>
         )
     }
 
 }
 
-export default ArtikalComponent
+export default ViewArtikleProdavca
 

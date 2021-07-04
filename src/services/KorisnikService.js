@@ -32,7 +32,7 @@ class KorisnikService{
     }
 
     getUserByUsername(username){
-        return axios.get(KORISNICI_REST_API_URL + '/' + username)
+        return axios.get(KORISNICI_PO_USERNAME + '/' + username)
     }
 
 

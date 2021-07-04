@@ -41,11 +41,11 @@ class UserInfoComponent extends React.Component{
         return (
             
             <div>
-                <h1 className="text-center"> Lista Korisnika </h1>
+                <h1 className="text-center"> My info </h1>
                 {/* <button className="btn btn-primary" >Login</button>
                 <button className="btn btn-primary" onClick={this.addUser}>Register</button> */}
                 <div className="row">
-                  var Uloga ={AuthenticationService.getRole()};
+                {AuthenticationService.getRole()};
                 </div>
                 <table className = "table table-striped">
                     <thead>

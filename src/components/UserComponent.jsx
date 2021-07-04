@@ -12,7 +12,7 @@ class UserComponent extends React.Component{
             username: AuthenticationService.getUsername(),
             korisnici:[],
         }
-        this.editKorisnik = this.editKorisnik.bind(this);
+        this.blockKorisnik = this.blockKorisnik.bind(this);
 
     }
 
@@ -30,9 +30,11 @@ class UserComponent extends React.Component{
             });
     }
 
-    editKorisnik(id){
-        this.props.history.push(`/updateKorisnik/${id}`);
+    blockKorisnik(id){
+        this.props.history.push(`/blockUser/${id}`);
+
     }
+
     
    
     render(){
@@ -67,7 +69,7 @@ class UserComponent extends React.Component{
                                     <td>{korisnik.prezime}</td>
                                     <td>{korisnik.username}</td>
                                     <td>
-                                        <button onClick={ () => this.editKorisnik(korisnik.id)} className="btn btn-danger">Blokiraj</button>
+                                        <button onClick={ () => this.blockKorisnik(korisnik.id)} className="btn btn-danger">Blokiraj</button>
                                     
                                     </td>
                                 </tr>

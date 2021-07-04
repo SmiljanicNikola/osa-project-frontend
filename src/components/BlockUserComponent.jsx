@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import KorisnikService from '../services/KorisnikService';
 
 
-class UpdateUserComponent extends Component {
+class BlockUserComponent extends Component {
     constructor(props){
         super(props)
 
@@ -18,7 +18,7 @@ class UpdateUserComponent extends Component {
         this.changeUsernameHandler = this.changeUsernameHandler.bind(this);
         this.changePasswordHandler = this.changePasswordHandler.bind(this);
 
-        this.updateUser = this.updateUser.bind(this);
+        this.blockUser = this.blockUser.bind(this);
 }
 
 componentDidMount(){
@@ -33,14 +33,14 @@ componentDidMount(){
     });
 }
 
-updateUser = (e) =>{
+blockUser = (e) =>{
         e.preventDefault();
         let korisnik = {ime: this.state.ime, prezime: this.state.prezime, username: this.state.username,
-        password: this.state.password
+        password: this.state.password, blokiran:true
         }
         console.log('User => ' + JSON.stringify(korisnik));
-        KorisnikService.updateUser(korisnik, this.state.id).then(res => {
-            this.props.history.push('/licnipodaci');
+        KorisnikService.blockUserById(korisnik, this.state.id).then(res => {
+            this.props.history.push('/svikorisnici');
         });
 }
 
@@ -74,7 +74,7 @@ cancel(){
                 <div className="container">
                     <div className="row">
                         <div className="card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className="text-center">Edit user</h3>
+                            <h3 className="text-center">Block Confirm</h3>
                             <div className="card-body">
                                 <form>
                                     <div className="form-group">
@@ -95,7 +95,7 @@ cancel(){
                                     </div>
                                     
         
-                                    <button className="btn btn-success" onClick={this.updateUser}>Izmeni</button>
+                                    <button className="btn btn-danger" onClick={this.blockUser}>Blokiraj</button>
                                     
                                 </form>
                             </div>
@@ -108,4 +108,4 @@ cancel(){
 
 }
 
-export default UpdateUserComponent
+export default BlockUserComponent

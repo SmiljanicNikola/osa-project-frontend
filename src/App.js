@@ -17,6 +17,7 @@ import UserComponent from './components/UserComponent';
 
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import BlockUserComponent from './components/BlockUserComponent';
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
                         
                           <Route path="/viewArtikal/:id" component={ViewArtikalComponent}></Route>
                           <Route path="/updateKorisnik/:id" component={UpdateUserComponent}></Route>
+                          <Route path="/blockUser/:id" component={BlockUserComponent}></Route>
+
                           <Route path="/home" component={HomeComponent}></Route>
 
                           <PrivateRoute

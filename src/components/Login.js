@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { AuthenticationService } from "../services/AuthenticationService";
+import KorisnikService from '../services/KorisnikService';
+
 
 const Login = () => {
   // useState je React Hook - funkcija koja dozvoljava definisanje stanja i životnog ciklusa unutar funkcija
@@ -39,8 +41,10 @@ const Login = () => {
   // JSX nije nužno koristi - ovo je samo deklarativan zapis funkcija koje će React izvesti
   // https://reactjs.org/docs/react-without-jsx.html
   return (
-    <Container>
-      <Row>
+
+    <Container className="card col-md-6 offset-md-3">
+      <br></br><br></br>
+      <Row >
         <Col md={{ span: 6, offset: 3 }} style={{ textAlign: "center" }}>
           <Form>
             <Form.Group>
@@ -60,13 +64,14 @@ const Login = () => {
                 value={credentials.password}
                 onChange={handleFormInputChange("password")}
               />
-            </Form.Group>
+            </Form.Group><br></br>
             <Button variant="success" onClick={login}>
               Log in
-            </Button>
+            </Button><br></br>
           </Form>
         </Col>
       </Row>
+      <br></br>
     </Container>
   );
 };

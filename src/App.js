@@ -76,7 +76,7 @@ function App() {
                           exact
                           path="/artikli"
                           component={ArtikalComponent}
-                          roles={["ROLE_PRODAVAC","ROLE_KUPAC"]}
+                          roles={["ROLE_PRODAVAC"]}
                           />
                           <PrivateRoute
                           exact

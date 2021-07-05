@@ -27,13 +27,23 @@ class RegistracijaKupcaComponent extends Component {
 
 saveKupac = (e) =>{
     e.preventDefault();
-    let test={repeatPassword:this.state.repeatPassword, password:this.state.password}
+    let test={repeatPassword:this.state.repeatPassword, password:this.state.password, ime: this.state.ime,
+    prezime: this.state.prezime, adresa: this.state.adresa}
     
     if(test.repeatPassword != test.password){
         console.log('Lozinke se ne podudaraju!');
     }
     else if(test.password.length < 3){
         console.log('Lozinka je previse kratka!')
+    }
+    else if(test.ime.length < 1){
+        console.log('Polje ime je obavezno!')
+    }
+    else if(test.prezime.length < 1){
+        console.log('Polje prezime je obavezno!')
+    }
+    else if(test.adresa.length < 1){
+        console.log('Polje adresa je obavezno!')
     }
     else{
     let kupac = {ime: this.state.ime, prezime: this.state.prezime, username: this.state.username,
@@ -116,7 +126,7 @@ cancel(){
                                     </div>
                                     <div className="form-group">
                                         <label>Ponovljen password:</label>
-                                        <input placeholder="Ponovljen password" name="repeatPassword" className="form-control"
+                                        <input placeholder="Ponovljen password" name="repeatPassword" type="password" className="form-control"
                                             value={this.state.repeatPassword} onChange={this.changerepeatPasswordHandler}/>
     
                                     </div>

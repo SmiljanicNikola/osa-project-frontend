@@ -34,13 +34,26 @@ class RegistracijaKupcaComponent extends Component {
 
 saveProdavac = (e) =>{
     e.preventDefault();
-    let test={repeatPassword:this.state.repeatPassword, password:this.state.password}
+    let test={repeatPassword:this.state.repeatPassword, password:this.state.password, email: this.state.email, ime: this.state.ime,
+    prezime: this.state.prezime, naziv: this.state.naziv}
     
     if(test.repeatPassword != test.password){
         console.log('Lozinke se ne podudaraju!');
     }
     else if(test.password.length < 3){
         console.log('Lozinka je previse kratka!')
+    }
+    else if(test.email.length < 8){
+        console.log('Unesite normalnu email adresu!')
+    }
+    else if(test.ime.length < 1){
+        console.log('Polje ime je obavezno!')
+    }
+    else if(test.prezime.length < 1){
+        console.log('Polje prezime je obavezno!')
+    }
+    else if(test.naziv.length < 1){
+        console.log('Polje naziv je obavezno!')
     }
     else{
     let prodavac = {ime: this.state.ime, prezime: this.state.prezime, username: this.state.username,

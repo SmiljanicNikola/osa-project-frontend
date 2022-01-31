@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ArtikalService from '../services/ArtikalService';
 
-
 class AddArtikalComponent extends Component {
     constructor(props){
         super(props)

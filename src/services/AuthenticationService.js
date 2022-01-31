@@ -1,8 +1,6 @@
 import SprintsAxiosClient from "./clients/SprintsAxiosClient";
 import { TokenService } from "./TokenService";
 import axios from 'axios'
-
-
 export const AuthenticationService = {
   login,
   logout,
@@ -16,6 +14,7 @@ async function login(userCredentials) {
       "http://localhost:8080/api/korisnici/login",
       userCredentials
     );
+    
     const decoded_token = TokenService.decodeToken(response.data.accessToken);
     if (decoded_token) {
       TokenService.setToken(response.data.accessToken);

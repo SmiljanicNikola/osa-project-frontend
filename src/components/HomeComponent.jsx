@@ -2,10 +2,8 @@ import React, {component} from 'react';
 import axios from 'axios';
 import { AuthenticationService } from "../services/AuthenticationService";
 import { TokenService } from "../services/TokenService";
-
-
-
-
+import '../App.css';
+import Footer from '../footer/Footer';
 class HomeComponent extends React.Component{
 
     state = {};
@@ -41,9 +39,11 @@ class HomeComponent extends React.Component{
 
     render(){
         return (
-        <div>
+    <div className="body">
+        <div className="container">
              <div className="card col-md-6 offset-md-3">
                  <h2 className="text-center">Logged user details:</h2>
+                 
                 <div className="card-body">
                 <div className="row">
                     <label style={{color:"black"}}>Username : {AuthenticationService.getUsername()}</label>
@@ -55,8 +55,9 @@ class HomeComponent extends React.Component{
                 <br></br>
                
             </div>
-        </div>
-    </div>    
+        </div>    
+        </div>   
+    </div>  
         )
         }
 

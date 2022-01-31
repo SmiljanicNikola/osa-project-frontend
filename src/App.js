@@ -1,9 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import ArtikalComponent from './components/ArtikalComponent';
-import HeaderComponent from './components/HeaderComponent';
-import FooterComponent from './components/FooterComponent';
-
+import React, {Component} from 'react';
 import RegistracijaKupcaComponent from './components/RegistracijaKupcaComponent';
 import RegistracijaProdavcaComponent from './components/RegistracijaProdavcaComponent';
 import Login from './components/Login';
@@ -18,16 +16,47 @@ import {PrivateRoute} from "./components/tasks/PrivateRoute";
 import UserComponent from './components/UserComponent';
 import ProdavciComponent from './components/ProdavciComponent';
 import ViewArtikleProdavca from './components/ViewArtikleProdavca';
-
-
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import BlockUserComponent from './components/BlockUserComponent';
+import SviArtikliComponent from './components/SviArtikliComponent';
+import SvePorudzbineComponent from './components/porudzbina/PorudzbinaComponent';
+import Navbar from './navbar/Navbar';
+import Footer from './footer/Footer';
 
-function App() {
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      userRole:'',
+      userName: null
+    };
+  }
+
+  componentDidMount() {
+    const role = AuthenticationService.getRole();
+    const userNameUlogovanog = AuthenticationService.getUsername();
+
+    if (role) {
+      this.setState({
+        userName: userNameUlogovanog,
+        userRole: role
+      });
+    }
+    console.log('Samo Role '+role);
+  }
+
+
+  render(){
+
+    const {userRole} = this.state;
+    console.log('Samo userRole '+userRole);
+
   return (
     <div>
         <Router>
-              <HeaderComponent/>
+              
+              <Navbar />
+              
                 <div className="container">
                     <Switch> 
                           
@@ -38,6 +67,7 @@ function App() {
                           <Route path="/viewArtikle/:id" component={ViewArtikleProdavca}></Route>
                           <Route path="/viewArtikal/:id" component={ViewArtikalComponent}></Route>
                           <Route path="/updateKorisnik/:id" component={UpdateUserComponent}></Route>
+                          <Route path="/porudzbine" component={SvePorudzbineComponent}></Route>
 
                           <Route path="/home" component={HomeComponent}></Route>
 
@@ -47,7 +77,12 @@ function App() {
                           component={BlockUserComponent}
                           roles={["ROLE_ADMINISTRATOR"]}
                           />
-
+                          <PrivateRoute
+                          exact
+                          path="/sviArtikli"
+                          component={SviArtikliComponent}
+                          roles={["ROLE_KUPAC"]}
+                          />
                           <PrivateRoute
                           exact
                           path="/updateArtikal/:id"
@@ -87,11 +122,15 @@ function App() {
 
                     </Switch>
                 </div>
+
         </Router>
-        <FooterComponent/>
+        <Router>
+          <Footer />
+        </Router>
 
     </div>
   );
+  }
 }
 
 export default App;

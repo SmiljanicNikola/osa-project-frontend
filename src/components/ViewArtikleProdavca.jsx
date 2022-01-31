@@ -1,4 +1,4 @@
-import React from 'react'
+/*import React from 'react'
 import ArtikalService from '../services/ArtikalService'
 import KorisnikService from '../services/KorisnikService'
 import ProdavacService from '../services/ProdavacService'
@@ -24,6 +24,8 @@ class ViewArtikleProdavca extends React.Component{
     }
 
     componentDidMount(){
+        KorisnikService.getKorisnici().then...
+
         ArtikalService.getArtikle().then((response) =>{
             this.setState({artikli:response.data})
             user:KorisnikService.getUserByUsername(AuthenticationService.getUsername())
@@ -33,7 +35,7 @@ class ViewArtikleProdavca extends React.Component{
     }
 
     viewArtikal(id){
-        this.props.history.push(`viewArtikal/${id}`);
+        this.props.history.push(`view/${id}`);
     }
 
     
@@ -44,7 +46,7 @@ class ViewArtikleProdavca extends React.Component{
             <div>
                 <h1 className="text-center"> Lista Artikala izabranog prodavca:</h1>
                 {/* <button className="btn btn-primary" >Login</button>
-                <button className="btn btn-primary" onClick={this.addUser}>Register</button> */}
+                <button className="btn btn-primary" onClick={this.addUser}>Register</button> }
                 <div className="row">
                 </div>
                 <table className = "table table-striped">
@@ -64,7 +66,7 @@ class ViewArtikleProdavca extends React.Component{
                         
                         {
                             this.state.artikli.map(
-                                artikal=>
+                                korisniuk=>
                                 <tr key = {artikal.id}>
                                     <td> {artikal.naziv}</td>
                                     <td>{artikal.opis}</td>
@@ -90,3 +92,4 @@ class ViewArtikleProdavca extends React.Component{
 
 export default ViewArtikleProdavca
 
+*/

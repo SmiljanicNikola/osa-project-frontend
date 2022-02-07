@@ -240,13 +240,13 @@ const Navbar  = ({toggle}) => {
                         </NavItem>
                         <NavItem>
                             <NavLinks 
-                                to="/about" 
+                                 as={Link} to="/elasticPorudzbine" 
                                 smooth={true} 
                                 duration={500} 
                                 spy={true}
                                 exact='true'
                                 offset={-80}>
-                                ADMINISTRATOR
+                                Porudzbine
                             </NavLinks>
                         </NavItem>
                         <NavItem>
@@ -257,7 +257,7 @@ const Navbar  = ({toggle}) => {
                                 spy={true}
                                 exact='true'
                                 offset={-80}>
-                                ADMINISTRATOR
+                                Administrator
                             </NavLinks>
                         </NavItem>
                         <NavItem>
@@ -268,20 +268,10 @@ const Navbar  = ({toggle}) => {
                                 spy={true}
                                 exact='true'
                                 offset={-80}>
-                                ADMINISTRATOR
+                                Administrator
                             </NavLinks>
                         </NavItem>
-                        <NavItem>
-                            <NavLinks 
-                                to="/about" 
-                                smooth={true} 
-                                duration={500} 
-                                spy={true}
-                                exact='true'
-                                offset={-80}>
-                                ADMINISTRATOR
-                            </NavLinks>
-                        </NavItem>
+                        
                         {TokenService.getToken() ? (
                 <Button onClick={() => AuthenticationService.logout()} >Log out</Button>
                 ) : (

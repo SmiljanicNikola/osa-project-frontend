@@ -1,0 +1,25 @@
+.center-search-bar{
+    align-items: center;
+    text-align:center;
+
+}
+
+.center-search-bar input{
+    margin-bottom: 20px;
+    height: 32px;
+
+}
+p{
+    font-size: 20px;
+}
+.green-bg-button{
+    background-color: rgb(5, 141, 5);
+    height: fit-content;
+    border-radius: 20px;
+    margin-left: 20px;
+    font-size: 20px;
+    width: 110px;
+}
+table tbody tr{
+    height: 40px;
+}

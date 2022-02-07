@@ -22,6 +22,7 @@ import SviArtikliComponent from './components/SviArtikliComponent';
 import SvePorudzbineComponent from './components/porudzbina/PorudzbinaComponent';
 import Navbar from './navbar/Navbar';
 import Footer from './footer/Footer';
+import SveElasticPorudzbineComponent from './components/porudzbina/PorudzbinaElasticComponent';
 
 class App extends Component {
   constructor(props){
@@ -68,6 +69,7 @@ class App extends Component {
                           <Route path="/viewArtikal/:id" component={ViewArtikalComponent}></Route>
                           <Route path="/updateKorisnik/:id" component={UpdateUserComponent}></Route>
                           <Route path="/porudzbine" component={SvePorudzbineComponent}></Route>
+                          <Route path="/elasticPorudzbine" component={SveElasticPorudzbineComponent}></Route>
 
                           <Route path="/home" component={HomeComponent}></Route>
 
@@ -77,6 +79,7 @@ class App extends Component {
                           component={BlockUserComponent}
                           roles={["ROLE_ADMINISTRATOR"]}
                           />
+                          
                           <PrivateRoute
                           exact
                           path="/sviArtikli"

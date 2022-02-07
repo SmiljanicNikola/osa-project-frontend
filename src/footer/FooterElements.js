@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const FooterContainer = styled.div`
     background-color: #101522;
     margin-top:100px;
-    position : absolute;
+    position : relative;
     bottom : 0;
     width:100%;
     `;
@@ -55,7 +55,7 @@ export const FooterLinkItems = styled.div`
 
 
 export const FooterLinkTitle = styled.h1`
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 16px;
 `;
 
@@ -63,7 +63,7 @@ export const FooterLink = styled(Link)`
     color:#fff;
     text-decoration: none;
     margin-bottom: 0.5rem;
-    font-size: 16px;
+    font-size: 14px;
 
     &:hover{
         color:#01bf71;
@@ -106,7 +106,7 @@ export const SocialIcons = styled.div`
 
 export const SocialIconLink = styled.a`
     color:#fff;
-    font-size:24px;
+    font-size:22px;
 `;
 
 

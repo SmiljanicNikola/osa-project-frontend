@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ArtikalService from '../services/ArtikalService';
-
+import { AuthenticationService } from '../services/AuthenticationService';
+import axios from 'axios';
 class AddArtikalComponent extends Component {
     constructor(props){
         super(props)
@@ -11,6 +12,12 @@ class AddArtikalComponent extends Component {
             cena: '',
             putanjaSlike:'',
             prodavacId:'',
+            username:'',
+            idKorisnika:'',
+            idProdvaca:'',
+            email:'',
+            adresa:'',
+            naziv:''
         }
         this.changeNazivHandler = this.changeNazivHandler.bind(this);
         this.changeOpisHandler = this.changeOpisHandler.bind(this);
@@ -20,15 +27,43 @@ class AddArtikalComponent extends Component {
 
         this.saveArtikal = this.saveArtikal.bind(this);
 }
+    componentDidMount(){
+    this.state.username = AuthenticationService.getUsername();
+
+    axios.get(`http://localhost:8080/api/korisnici/username/${this.state.username}`).then( (res) =>{
+        let korisnik = res.data;
+        this.setState({
+            idKorisnika: korisnik.id,
+            ime: korisnik.ime,
+            prezime: korisnik.prezime,
+        });
+
+    });
+    axios.get(`http://localhost:8080/api/prodavci/username/${this.state.username}`).then( (res) =>{
+        let prodavac = res.data;
+        this.setState({
+            idProdavca: prodavac.id,
+            email: prodavac.email,
+            adresa: prodavac.adresa,
+        });
+        console.log(this.state.idProdavca);
+    });
+
+
+}
+    
 
 saveArtikal = (e) =>{
     e.preventDefault();
     let artikal = {naziv: this.state.naziv, opis: this.state.opis, cena: this.state.cena,
-        putanjaSlike: this.state.putanjaSlike, prodavacId: this.state.prodavacId
+        putanjaSlike: this.state.putanjaSlike, prodavacId: this.state.idProdavca
         }
         console.log('Artikal => ' + JSON.stringify(artikal));
 
         ArtikalService.createArtikal(artikal).then(res=>{
+            this.props.history.push('/artikli')
+        });
+        ArtikalService.createArtikalElastic(artikal).then(res=>{
             this.props.history.push('/artikli')
         });
 }
@@ -87,11 +122,7 @@ cancel(){
                                         <input placeholder="Putanja Slike" name="putanjaSlike" className="form-control"
                                             value={this.state.putanjaSlike} onChange={this.changePutanjaSlike}/>       
                                     </div>
-                                    <div className="form-group">
-                                        <label>Prodavac ID</label>
-                                        <input placeholder="Id of prodavca" name="prodavacId" className="form-control"
-                                            value={this.state.prodavacId} onChange={this.changeProdavacIdHandler}/>       
-                                    </div>
+                                    
         
                                     <button className="btn btn-success" onClick={this.saveArtikal}>Dodaj</button>
                                 </form>

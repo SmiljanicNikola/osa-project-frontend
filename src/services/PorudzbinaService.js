@@ -13,9 +13,12 @@ class PorudzbinaService{
     getPorudzbineElastic(){
         return axios.get(PORUDZBINE_ELASTIC_REST_API_URL);
     }
-    searchPorudzbine(komentar){
+    searchPorudzbinePoKomentaru(komentar){
         return axios.get(PORUDZBINE_ELASTIC_REST_API_URL + "/" + komentar);
     }
+    /*searchPorudzbinePoOceni(ocena){
+        return axios.get(PORUDZBINE_ELASTIC_REST_API_URL + "/" + ocena+'?minOcena');
+    }*/
 }
 
 export default new PorudzbinaService();

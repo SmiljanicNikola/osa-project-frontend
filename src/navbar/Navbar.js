@@ -63,7 +63,7 @@ const Navbar  = ({toggle}) => {
         <IconContext.Provider value={{color:'#fff'}}>
             <Nav scrollNav={scrollNav}>
                 <NavbarContainer>
-                    <NavLogo to="/" onClick={toggleHome}>
+                    <NavLogo to="/home" style={{marginLeft:"40px"}} onClick={toggleHome}>
                         Prodavnica
                     </NavLogo>
                     <MobileIcon onClick={toggle}>
@@ -74,28 +74,27 @@ const Navbar  = ({toggle}) => {
                     <NavMenu>
                         <NavItem>
                             <NavLinks 
-                                as={Link} to="/sviArtikli" 
+                                as={Link} to="/home" 
                                 smooth={true} 
                                 duration={500} 
                                 spy={true}
                                 exact='true'
                                 offset={-80}
-                            >KupacStavka
+                            >Home
                             </NavLinks>
                         </NavItem>
                         
                         <NavItem>
                             <NavLinks 
-                                as={Link} to="/artikli" 
+                                as={Link} to="/prodavci" 
                                 smooth={true} 
                                 duration={500} 
                                 spy={true}
                                 exact='true'
                                 offset={-80}
-                            >KupacStavka
+                            >Prodavci
                             </NavLinks>
                         </NavItem>
-
                         <NavItem>
                             <NavLinks 
                                 as={Link} to="/sviArtikli" 
@@ -104,31 +103,18 @@ const Navbar  = ({toggle}) => {
                                 spy={true}
                                 exact='true'
                                 offset={-80}
-                            >KupacStavka
+                            >Svi Artikli
                             </NavLinks>
                         </NavItem>
-
                         <NavItem>
                             <NavLinks 
-                                as={Link} to="/sviArtikli" 
+                                as={Link} to="/changePassword" 
                                 smooth={true} 
                                 duration={500} 
                                 spy={true}
                                 exact='true'
                                 offset={-80}
-                            >KupacStavka
-                            </NavLinks>
-                        </NavItem>
-                        
-                        <NavItem>
-                            <NavLinks 
-                                as={Link} to="/sviArtikli" 
-                                smooth={true} 
-                                duration={500} 
-                                spy={true}
-                                exact='true'
-                                offset={-80}
-                            >KupacStavka
+                            >ChangePass
                             </NavLinks>
                         </NavItem>
                         {TokenService.getToken() ? (
@@ -154,57 +140,35 @@ const Navbar  = ({toggle}) => {
                     <NavMenu>
                         <NavItem>
                             <NavLinks 
-                                as={Link} to="/about" 
+                                as={Link} to="/home" 
                                 smooth={true} 
                                 duration={500} 
                                 spy={true}
                                 exact='true'
                                 offset={-80}>
-                                Prodavac
+                                Home
                             </NavLinks>
                         </NavItem>
                         <NavItem>
                             <NavLinks 
-                                as={Link} to="/about" 
+                                as={Link} to="/changePassword" 
                                 smooth={true} 
                                 duration={500} 
                                 spy={true}
                                 exact='true'
                                 offset={-80}>
-                                Prodavac
+                                ChangePass
                             </NavLinks>
                         </NavItem>
                         <NavItem>
                             <NavLinks 
-                                as={Link} to="/about" 
+                                as={Link} to="/artikli" 
                                 smooth={true} 
                                 duration={500} 
                                 spy={true}
                                 exact='true'
                                 offset={-80}>
-                                Prodavac
-                            </NavLinks>
-                        </NavItem>
-                        <NavItem>
-                            <NavLinks 
-                                as={Link} to="/about" 
-                                smooth={true} 
-                                duration={500} 
-                                spy={true}
-                                exact='true'
-                                offset={-80}>
-                                Prodavac
-                            </NavLinks>
-                        </NavItem>
-                        <NavItem>
-                            <NavLinks 
-                                as={Link} to="/about" 
-                                smooth={true} 
-                                duration={500} 
-                                spy={true}
-                                exact='true'
-                                offset={-80}>
-                                Prodavac
+                                Moji Artikli
                             </NavLinks>
                         </NavItem>
                         {TokenService.getToken() ? (
@@ -240,7 +204,7 @@ const Navbar  = ({toggle}) => {
                         </NavItem>
                         <NavItem>
                             <NavLinks 
-                                 as={Link} to="/elasticPorudzbine" 
+                                as={Link} to="/elasticPorudzbine" 
                                 smooth={true} 
                                 duration={500} 
                                 spy={true}
@@ -251,24 +215,13 @@ const Navbar  = ({toggle}) => {
                         </NavItem>
                         <NavItem>
                             <NavLinks 
-                                to="/about" 
+                                as={Link} to="/elasticArtikli" 
                                 smooth={true} 
                                 duration={500} 
                                 spy={true}
                                 exact='true'
                                 offset={-80}>
-                                Administrator
-                            </NavLinks>
-                        </NavItem>
-                        <NavItem>
-                            <NavLinks 
-                                to="/about" 
-                                smooth={true} 
-                                duration={500} 
-                                spy={true}
-                                exact='true'
-                                offset={-80}>
-                                Administrator
+                                Artikli
                             </NavLinks>
                         </NavItem>
                         

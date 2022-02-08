@@ -23,6 +23,9 @@ import SvePorudzbineComponent from './components/porudzbina/PorudzbinaComponent'
 import Navbar from './navbar/Navbar';
 import Footer from './footer/Footer';
 import SveElasticPorudzbineComponent from './components/porudzbina/PorudzbinaElasticComponent';
+import ChangePasswordComponent from './components/ChangePasswordComponent';
+import ChangeInfoComponent from './components/ChangeInfoComponent';
+import SviElasticArtikliComponent from './components/ArtikalElasticComponents';
 
 class App extends Component {
   constructor(props){
@@ -70,8 +73,11 @@ class App extends Component {
                           <Route path="/updateKorisnik/:id" component={UpdateUserComponent}></Route>
                           <Route path="/porudzbine" component={SvePorudzbineComponent}></Route>
                           <Route path="/elasticPorudzbine" component={SveElasticPorudzbineComponent}></Route>
+                          <Route path="/elasticArtikli" component={SviElasticArtikliComponent}></Route>
 
+                          <Route path="/changePassword" component={ChangePasswordComponent}></Route>
                           <Route path="/home" component={HomeComponent}></Route>
+                          <Route path="/changeInfo" component={ChangeInfoComponent}></Route>
 
                           <PrivateRoute
                           exact

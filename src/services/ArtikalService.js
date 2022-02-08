@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const ARTIKLI_REST_API_URL = 'http://localhost:8080/api/artikli';
+const ARTIKLI_ELASTIC_REST_API_URL = 'http://localhost:8080/artiklii'
 
 class ArtikalService{
     getArtikle(){
@@ -21,6 +22,15 @@ class ArtikalService{
 
     deleteArtikal(artikalId){
         return axios.delete(ARTIKLI_REST_API_URL + '/' + artikalId);
+    }
+    getArtikliElastic(){
+        return axios.get(ARTIKLI_ELASTIC_REST_API_URL);
+    }
+    searchArtiklePoNazivu(naziv){
+        return axios.get(ARTIKLI_ELASTIC_REST_API_URL + "/" + naziv);
+    }
+    createArtikalElastic(artikal){
+        return axios.post(ARTIKLI_ELASTIC_REST_API_URL,artikal);
     }
 }
 

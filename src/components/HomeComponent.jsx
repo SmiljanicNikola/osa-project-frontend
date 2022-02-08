@@ -3,11 +3,23 @@ import axios from 'axios';
 import { AuthenticationService } from "../services/AuthenticationService";
 import { TokenService } from "../services/TokenService";
 import '../App.css';
+import { Link } from "react-router-dom";
 import Footer from '../footer/Footer';
 class HomeComponent extends React.Component{
 
-    state = {};
+    constructor(props){
+        super(props)
+
+        this.state={
+            username: '',
+            ime:'',
+            prezime:'',
+            adresa : ''
+
+        } 
+    }
     componentDidMount(){
+        this.state.username = AuthenticationService.getUsername();
 
         const config = {
             headers: {
@@ -35,25 +47,57 @@ class HomeComponent extends React.Component{
                 console.log(err)
             }
         )
+        axios.get(`http://localhost:8080/api/korisnici/username/${this.state.username}`).then( (res) =>{
+            let korisnik = res.data;
+            this.setState({
+                ime: korisnik.ime,
+                prezime: korisnik.prezime,
+                username: korisnik.username,
+                currentPassword: korisnik.password
+            });
+    
+        });
+        axios.get(`http://localhost:8080/api/prodavci/username/${this.state.username}`).then( (res) =>{
+            let prodavac = res.data;
+            this.setState({
+                email: prodavac.email,
+                adresa: prodavac.adresa,
+                
+            });
+            console.log(this.state.idProdavca);
+        });
+    }
+
+    preusmeri = (e) =>{
+        this.props.history.push('/changeInfo');
+
     }
 
     render(){
         return (
     <div className="body">
         <div className="container">
-             <div className="card col-md-6 offset-md-3">
-                 <h2 className="text-center">Logged user details:</h2>
+             <div className="card col-md-6 offset-md-3" >
+                 <h2 className="text-center" style={{marginTop:'20px'}}>Logged user details:</h2>
                  
-                <div className="card-body">
+                <div className="text-center" style={{marginTop:"8px"}}>
                 <div className="row">
-                    <label style={{color:"black"}}>Username : {AuthenticationService.getUsername()}</label>
+                    <label style={{color:"black", fontWeight:"600"}}>Username : {AuthenticationService.getUsername()}</label>
                 </div><br></br>
                 <div className="row">
-                    <label style={{color:"black"}}>Role : {AuthenticationService.getRole()}</label>
+                    <label style={{color:"black", fontWeight:"600"}}>Role : {AuthenticationService.getRole()}</label>
                 </div><br></br>
-               
+                <div className="row">
+                    <label style={{color:"black", fontWeight:"600"}}>Ime : {this.state.ime}</label>
+                </div><br></br>
+                <div className="row">
+                    <label style={{color:"black", fontWeight:"600"}}>Prezime : {this.state.prezime}</label>
+                </div><br></br>
+                <div className="row">
+                    <label style={{color:"black", fontWeight:"600"}}>Adresa : {this.state.adresa}</label>
+                </div><br></br>
                 <br></br>
-               
+                <button className="btn btn-warning" style={{marginBottom:'30px'}} onClick={this.preusmeri} >Promeni podatke</button>
             </div>
         </div>    
         </div>   

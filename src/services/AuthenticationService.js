@@ -18,7 +18,7 @@ async function login(userCredentials) {
     const decoded_token = TokenService.decodeToken(response.data.accessToken);
     if (decoded_token) {
       TokenService.setToken(response.data.accessToken);
-      window.location.assign("/");
+      window.location.assign("/home");
       console.log(response.data.username);
 
     } else {

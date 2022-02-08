@@ -1,24 +1,32 @@
 .center-search-bar{
-    align-items: center;
-    text-align:center;
+    display: flex;
+    flex-direction: row;
 
 }
 
 .center-search-bar input{
-    margin-bottom: 20px;
-    height: 32px;
+    height: 25px;
+    margin-left: 5px;
 
 }
 p{
-    font-size: 20px;
+    font-size: 17px;
 }
 .green-bg-button{
-    background-color: rgb(5, 141, 5);
+    background-color:#5cb85c;
     height: fit-content;
     border-radius: 20px;
-    margin-left: 20px;
-    font-size: 20px;
-    width: 110px;
+    margin-left: 10px;
+    font-size: 15px;
+    width: 100px;
+}
+.red-bg-button{
+    background-color: rgb(217, 83, 79);
+    height: fit-content;
+    border-radius: 20px;
+    margin-left: 6px;
+    font-size: 15px;
+    width: 100px;
 }
 table tbody tr{
     height: 40px;

@@ -57,6 +57,7 @@ class HomeComponent extends React.Component{
             });
     
         });
+        if(AuthenticationService.getRole == 'ROLE_PRODAVAC'){
         axios.get(`http://localhost:8080/api/prodavci/username/${this.state.username}`).then( (res) =>{
             let prodavac = res.data;
             this.setState({
@@ -67,6 +68,16 @@ class HomeComponent extends React.Component{
             console.log(this.state.idProdavca);
         });
     }
+        else{
+        axios.get(`http://localhost:8080/api/kupac/username/${this.state.username}`).then( (res) =>{
+            let kupac = res.data;
+            this.setState({
+                adresa: kupac.adresa,
+                
+            });
+        });
+    }
+    }
 
     preusmeri = (e) =>{
         this.props.history.push('/changeInfo');
@@ -76,7 +87,7 @@ class HomeComponent extends React.Component{
     render(){
         return (
     <div className="body">
-        <div className="container">
+        <div className="container" style={{backgroundColor:' #101522'}}>
              <div className="card col-md-6 offset-md-3" >
                  <h2 className="text-center" style={{marginTop:'20px'}}>Logged user details:</h2>
                  
@@ -92,9 +103,6 @@ class HomeComponent extends React.Component{
                 </div><br></br>
                 <div className="row">
                     <label style={{color:"black", fontWeight:"600"}}>Prezime : {this.state.prezime}</label>
-                </div><br></br>
-                <div className="row">
-                    <label style={{color:"black", fontWeight:"600"}}>Adresa : {this.state.adresa}</label>
                 </div><br></br>
                 <br></br>
                 <button className="btn btn-warning" style={{marginBottom:'30px'}} onClick={this.preusmeri} >Promeni podatke</button>

@@ -31,9 +31,6 @@ const Navbar  = ({toggle}) => {
             setScrollNav(false);
         }
     }
-
-    
-
     useEffect(() => {
         window.addEventListener('scroll',changeNav)
 
@@ -49,11 +46,8 @@ const Navbar  = ({toggle}) => {
         console.log(userName);
         console.log(user);
         console.log(rola);
-
-
     },[])
     
-
     const toggleHome = () => {
         scroll.scrollToTop();
     }
@@ -104,6 +98,17 @@ const Navbar  = ({toggle}) => {
                                 exact='true'
                                 offset={-80}
                             >Svi Artikli
+                            </NavLinks>
+                        </NavItem>
+                        <NavItem>
+                            <NavLinks 
+                                as={Link} to="/mojePorudzbine" 
+                                smooth={true} 
+                                duration={500} 
+                                spy={true}
+                                exact='true'
+                                offset={-80}
+                            >MojePorudzbine
                             </NavLinks>
                         </NavItem>
                         <NavItem>
@@ -169,6 +174,17 @@ const Navbar  = ({toggle}) => {
                                 exact='true'
                                 offset={-80}>
                                 Moji Artikli
+                            </NavLinks>
+                        </NavItem>
+                        <NavItem>
+                            <NavLinks 
+                                as={Link} to="/artikliProdavcaElastic" 
+                                smooth={true} 
+                                duration={500} 
+                                spy={true}
+                                exact='true'
+                                offset={-80}>
+                                MojiElasticArtikli
                             </NavLinks>
                         </NavItem>
                         {TokenService.getToken() ? (
@@ -268,7 +284,7 @@ const Navbar  = ({toggle}) => {
                             <Button onClick={() => AuthenticationService.logout()} >Log out</Button>
                             ) :
                             (
-                            <Navv.Link as={Link} to="/login">
+                            <Navv.Link as={Link} to="/login" style={{marginRight:'60px'}}>
                                 Log in
                             </Navv.Link>
                             )}

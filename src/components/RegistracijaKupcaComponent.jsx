@@ -92,10 +92,10 @@ cancel(){
                 <div className="container">
                     <div className="row">
                         <div className="card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className="text-center">Registracija Kupaca</h3>
+                            <h3 className="text-center" style={{marginTop:'15px'}}>Registracija Kupaca</h3>
                             <div className="card-body">
                                 <form>
-                                    <div className="form-group">
+                                    <div className="form-group" style={{marginTop:'15px'}}>
                                         <label>Ime:</label>
                                         <input placeholder="Ime" name="ime" className="form-control"
                                             value={this.state.ime} onChange={this.changeImeHandler}/>
@@ -139,10 +139,10 @@ cancel(){
     
                                     </div>
                             
-                                    
-                                    <button className="btn btn-success" onClick={this.saveKupac}>Save</button>
-                                    <button className="btn btn-danger" onClick={this.cancel}>   Cancel</button>
-
+                                    <center>
+                                        <button className="btn btn-success" onClick={this.saveKupac} style={{marginTop:'20px'}}>Save</button>
+                                        <button className="btn btn-danger" onClick={this.cancel} style={{marginTop:'20px', marginLeft:'10px'}}>   Cancel</button>
+                                    </center>
                                 </form>
                             </div>
                         </div>

@@ -2,27 +2,42 @@ import React, {Component} from "react";
 import style from './porudzbina/style.css'
 import ArtikalService from "../services/ArtikalService";
 import axios from "axios";
+import { AuthenticationService } from "../services/AuthenticationService";
 
-class SviElasticArtikliComponent extends Component {
+class ArtikliProdavcaElastic extends React.Component {
     constructor(props){
         super(props);
         this.state={
             artikli:[],
             inputNaziv:"",
             inputMinCena:0,
-            inputMaxCena:99999
+            inputMaxCena:99999,
+            rola:AuthenticationService.getRole(),
+            username: AuthenticationService.getUsername(),
+            idProdavca: ''
         }
     } 
 
     componentDidMount(){
+        axios.get(`http://localhost:8080/api/prodavci/username/${this.state.username}`).then( (res) =>{
+                    let prodavac = res.data;
+                    this.setState({
+                        idProdavca: prodavac.id,
+                    });
+                });
+
         ArtikalService.getArtikliElastic().then((response ) => {
             this.setState({artikli: response.data})
+            this.setState({artikli: this.state.artikli.filter(artikli => artikli.prodavacId == this.state.idProdavca)})
         });
+       
     }
 
     ispisiRezultat = () => {
         ArtikalService.searchArtiklePoNazivu(this.state.inputNaziv).then(res => {
             this.setState({artikli: res.data});
+            this.setState({artikli: this.state.artikli.filter(artikli => artikli.prodavacId == this.state.idProdavca)})
+
         })
     }
 
@@ -32,6 +47,8 @@ class SviElasticArtikliComponent extends Component {
             this.setState({
                 artikli:res.data
             });
+            this.setState({artikli: this.state.artikli.filter(artikli => artikli.prodavacId == this.state.idProdavca)})
+
         });
     }
 
@@ -40,13 +57,23 @@ class SviElasticArtikliComponent extends Component {
         this.state.inputMaxCena = 99999;
         axios.get("http://localhost:8080/artikli7/cena?minCena=0&maxCena=999999").then( (res) =>{
             this.setState({
-                artikli:res.data
+                artikli:res.data.filter(artikli=> artikli.prodavacId == this.state.idProdavca)
             });
+
         });
+    }
+    editArtikalElastic(id){
+        this.props.history.push(`/updateArtikalElastic/${id}`);
     }
 
     addArtikalElastic(){
         this.props.history.push('/addArtikal');
+    }
+
+     deleteArtikalElastic(id){
+        ArtikalService.deleteArtikalElastic(id).then(res => {
+            
+        });
     }
 
     render() { 
@@ -54,12 +81,6 @@ class SviElasticArtikliComponent extends Component {
             <div>
                 <h3 className="text-center"> Artikli </h3>
 
-                {/*<div className="center-search-bar">
-                    <p>Pretraga po nazivu:</p><input 
-                    value={this.state.inputNaziv} 
-                    onChange={(e) => this.setState({inputNaziv: e.target.value})} />
-                    <button onClick={this.ispisiRezultat} className='green-bg-button'>Pretrazi</button>
-                </div>*/}
                  <div className="center-search-bar" style={{marginTop:'40px'}}>
                    
                    <p style={{marginLeft:'30px',fontWeight:'600'}}>Po Nazivu:</p>
@@ -97,6 +118,7 @@ class SviElasticArtikliComponent extends Component {
                             <td>Opis</td>
                             <td>Cena</td>
                             <td>Putanja Slike</td>
+                            <td>Akcije</td>
 
                         </tr>
                     </thead>
@@ -110,11 +132,18 @@ class SviElasticArtikliComponent extends Component {
                                     <td>{artikal.opis}</td>
                                     <td>{artikal.cena}</td>
                                     <td>{artikal.putanjaSlike}</td>
+                                    <td>
+                                        <button onClick={ () => this.editArtikalElastic(artikal.id)} className="btn btn-info">Update</button>
+                                        <button style={{marginLeft: "10px"}} onClick={ () => {this.deleteArtikalElastic(artikal.id);window.location.reload(false)}} className="btn btn-danger">Delete</button>
+
+                                    </td>
                                 </tr>
                             )
                         }
                     </tbody>
                 </table>
+
+                <button className="btn btn-success" onClick={this.addArtikalElastic}>Dodaj Artikal</button>
 
             </div>
         );
@@ -122,4 +151,4 @@ class SviElasticArtikliComponent extends Component {
 }
  
 
-export default SviElasticArtikliComponent;
+export default ArtikliProdavcaElastic;

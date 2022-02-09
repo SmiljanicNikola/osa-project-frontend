@@ -49,8 +49,6 @@ class SviArtikliComponent extends React.Component {
                                     <td>{artikal.cena}</td>
                                     <td>{artikal.putanjaSlike}</td>
                                     <td>
-                                        
-
                                     </td>
                                 </tr>
                             )

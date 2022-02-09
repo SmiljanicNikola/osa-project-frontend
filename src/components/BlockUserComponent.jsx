@@ -74,8 +74,8 @@ cancel(){
                 <div className="container">
                     <div className="row">
                         <div className="card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className="text-center">Block Confirm</h3>
-                            <div className="card-body">
+                            <h3 className="text-center" style={{marginTop:'15px'}}>Block Confirm</h3>
+                            <div className="card-body" style={{marginTop:'15px'}}>
                                 <form>
                                     <div className="form-group">
                                         <label>Ime</label>
@@ -94,9 +94,9 @@ cancel(){
                                             value={this.state.username} onChange={this.changeUsernameHandler}/>      
                                     </div>
                                     
-        
-                                    <button className="btn btn-danger" onClick={this.blockUser}>Blokiraj</button>
-                                    
+                                    <center>
+                                        <button className="btn btn-danger" onClick={this.blockUser} style={{marginTop:'15px'}}>Blokiraj</button>
+                                    </center>
                                 </form>
                             </div>
                         </div>

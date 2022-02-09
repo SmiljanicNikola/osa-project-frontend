@@ -38,13 +38,13 @@ const Login = () => {
   // https://reactjs.org/docs/react-without-jsx.html
   return (
 
-    <Container className="card col-md-6 offset-md-3">
+    <Container className="card col-md-6 offset-md-3" style={{backgroundColor:' #101522'}}>
       <br></br><br></br>
       <Row >
         <Col md={{ span: 6, offset: 3 }} style={{ textAlign: "center" }}>
-          <Form>
-            <Form.Group>
-              <Form.Label>Username</Form.Label>
+          <Form >
+            <Form.Group >
+              <Form.Label style={{color:'white'}}>Username</Form.Label>
               <Form.Control
                 type="text"
                 name="username"
@@ -53,7 +53,7 @@ const Login = () => {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Password</Form.Label>
+              <Form.Label style={{color:'white', marginTop:'15px'}}>Password</Form.Label>
               <Form.Control
                 type="password"
                 name="password"

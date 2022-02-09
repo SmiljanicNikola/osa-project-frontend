@@ -60,9 +60,7 @@ class ChangePasswordComponent extends Component {
         }
         else if(test.password.length<3){
             console.log('Lozinka je previse kratka')
-        }/*else if(test.currentPassword !== test.currentPasswordCheck){
-            console.log('Niste uneli pravu originalnu lozinku')
-        }*/
+        }
         
 
         else{
@@ -71,9 +69,7 @@ class ChangePasswordComponent extends Component {
             KorisnikService.updatePassword(korisnik,this.state.userName).then(res =>{
                 this.props.history.push('/home');
             })
-            /*axios.put(`http://localhost:8080/api/korisnici/username/${this.state.userName}`,korisnik).then(res =>{
-                this.props.history.push('');
-            })*/
+            
         }
     }
     changePasswordHandler = (event) =>{

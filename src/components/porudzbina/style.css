@@ -31,3 +31,7 @@ p{
 table tbody tr{
     height: 40px;
 }
+.dugmici{
+    display: flex;
+    flex-direction: row;
+}

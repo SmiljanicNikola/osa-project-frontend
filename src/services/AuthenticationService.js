@@ -33,7 +33,7 @@ async function login(userCredentials) {
 
 function logout() {
   TokenService.removeToken();
-  window.location.assign("/");
+  window.location.assign("/login");
 }
 
 function getRole() {

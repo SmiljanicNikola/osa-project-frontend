@@ -26,7 +26,10 @@ import SveElasticPorudzbineComponent from './components/porudzbina/PorudzbinaEla
 import ChangePasswordComponent from './components/ChangePasswordComponent';
 import ChangeInfoComponent from './components/ChangeInfoComponent';
 import SviElasticArtikliComponent from './components/ArtikalElasticComponents';
-
+import PorudzbineKupcaComponent from './components/porudzbina/PorudzbineKupcaComponent';
+import RecenzirajPorudzbinuComponent from './components/porudzbina/RecenzirajPorudzbinuComponent';
+import ArtikliProdavcaElastic from './components/ArtikliProdavcaElastic';
+import UpdateArtikalElasticComponent from './components/UpdateArtikalElasticComponent';
 class App extends Component {
   constructor(props){
     super(props);
@@ -67,18 +70,23 @@ class App extends Component {
                           <Route path="/registracijakupca" component={RegistracijaKupcaComponent}></Route>
                           <Route path="/registracijaprodavca" component={RegistracijaProdavcaComponent}></Route>
                           <Route path="/login" component={Login}></Route>
-                          
                           <Route path="/viewArtikle/:id" component={ViewArtikleProdavca}></Route>
                           <Route path="/viewArtikal/:id" component={ViewArtikalComponent}></Route>
                           <Route path="/updateKorisnik/:id" component={UpdateUserComponent}></Route>
                           <Route path="/porudzbine" component={SvePorudzbineComponent}></Route>
                           <Route path="/elasticPorudzbine" component={SveElasticPorudzbineComponent}></Route>
                           <Route path="/elasticArtikli" component={SviElasticArtikliComponent}></Route>
-
+                          <Route path="/mojePorudzbine" component={PorudzbineKupcaComponent}></Route>
                           <Route path="/changePassword" component={ChangePasswordComponent}></Route>
                           <Route path="/home" component={HomeComponent}></Route>
                           <Route path="/changeInfo" component={ChangeInfoComponent}></Route>
-
+                          
+                          <PrivateRoute
+                          exact
+                          path="/artikliProdavcaElastic"
+                          component={ArtikliProdavcaElastic}
+                          roles={["ROLE_PRODAVAC"]}
+                          />
                           <PrivateRoute
                           exact
                           path="/blockUser/:id"
@@ -97,6 +105,18 @@ class App extends Component {
                           path="/updateArtikal/:id"
                           component={UpdateArtikalComponent}
                           roles={["ROLE_PRODAVAC"]}
+                          />
+                          <PrivateRoute
+                          exact
+                          path="/updateArtikalElastic/:id"
+                          component={UpdateArtikalElasticComponent}
+                          roles={["ROLE_PRODAVAC"]}
+                          />
+                           <PrivateRoute
+                          exact
+                          path="/recenzirajPorudzbinu/:id"
+                          component={RecenzirajPorudzbinuComponent}
+                          roles={["ROLE_KUPAC"]}
                           />
                            <PrivateRoute
                           exact
@@ -120,6 +140,12 @@ class App extends Component {
                           exact
                           path="/artikli"
                           component={ArtikalComponent}
+                          roles={["ROLE_PRODAVAC"]}
+                          />
+                          <PrivateRoute
+                          exact
+                          path="/artikliProdavcaElastic"
+                          component={ArtikliProdavcaElastic}
                           roles={["ROLE_PRODAVAC"]}
                           />
                           <PrivateRoute

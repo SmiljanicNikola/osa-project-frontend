@@ -2,7 +2,6 @@ import React from 'react'
 import ArtikalService from '../services/ArtikalService'
 import KorisnikService from '../services/KorisnikService'
 import ProdavacService from '../services/ProdavacService'
-
 import { AuthenticationService } from "../services/AuthenticationService";
 
 
@@ -14,7 +13,6 @@ class ArtikalComponent extends React.Component{
         this.state = {
             username: AuthenticationService.getUsername(),
             user: KorisnikService.getUserByUsername(AuthenticationService.getUsername()),
-
             artikli:[]
         }
 

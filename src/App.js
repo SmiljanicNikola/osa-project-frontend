@@ -30,6 +30,7 @@ import PorudzbineKupcaComponent from './components/porudzbina/PorudzbineKupcaCom
 import RecenzirajPorudzbinuComponent from './components/porudzbina/RecenzirajPorudzbinuComponent';
 import ArtikliProdavcaElastic from './components/ArtikliProdavcaElastic';
 import UpdateArtikalElasticComponent from './components/UpdateArtikalElasticComponent';
+import ElasticPorudzbineKupcaComponent from './components/porudzbina/ElasticPorudzbineKupcaComponent';
 class App extends Component {
   constructor(props){
     super(props);
@@ -118,6 +119,19 @@ class App extends Component {
                           component={RecenzirajPorudzbinuComponent}
                           roles={["ROLE_KUPAC"]}
                           />
+                          <PrivateRoute
+                          exact
+                          path="/recenzirajElasticPorudzbinu/:id"
+                          component={RecenzirajPorudzbinuComponent}
+                          roles={["ROLE_KUPAC"]}
+                          />
+                          
+                          <PrivateRoute
+                          exact
+                          path="/mojeElasticPorudzbine"
+                          component={ElasticPorudzbineKupcaComponent}
+                          roles={["ROLE_KUPAC"]}
+                          />
                            <PrivateRoute
                           exact
                           path="/prodavci"
@@ -148,6 +162,7 @@ class App extends Component {
                           component={ArtikliProdavcaElastic}
                           roles={["ROLE_PRODAVAC"]}
                           />
+                          
                           <PrivateRoute
                           exact
                           path="/licnipodaci"

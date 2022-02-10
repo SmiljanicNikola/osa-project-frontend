@@ -84,6 +84,11 @@ class HomeComponent extends React.Component{
 
     }
 
+    preusmeriPromenaLozinke = (e) =>{
+        this.props.history.push('/changePassword');
+
+    }
+
     render(){
         return (
     <div className="body">
@@ -106,6 +111,7 @@ class HomeComponent extends React.Component{
                 </div><br></br>
                 <br></br>
                 <button className="btn btn-warning" style={{marginBottom:'30px'}} onClick={this.preusmeri} >Promeni podatke</button>
+                <button className="btn btn-danger" style={{marginBottom:'30px',marginLeft:'15px'}} onClick={this.preusmeriPromenaLozinke} >Promeni lozinku</button>
             </div>
         </div>    
         </div>   

@@ -12,10 +12,6 @@ class ProdavacService{
         return axios.put(PRODAVCI_REST_API_URL2+ '/' + prodavacUserName, prodavac);
     }
 
-    
-
-
-
 }
 
 

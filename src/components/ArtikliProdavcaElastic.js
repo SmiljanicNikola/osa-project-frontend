@@ -16,6 +16,8 @@ class ArtikliProdavcaElastic extends React.Component {
             username: AuthenticationService.getUsername(),
             idProdavca: ''
         }
+        this.addArtikalElastic = this.addArtikalElastic.bind(this);
+
     } 
 
     componentDidMount(){

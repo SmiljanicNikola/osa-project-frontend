@@ -91,7 +91,7 @@ const Navbar  = ({toggle}) => {
                         </NavItem>
                         <NavItem>
                             <NavLinks 
-                                as={Link} to="/sviArtikli" 
+                                as={Link} to="/elasticArtikli" 
                                 smooth={true} 
                                 duration={500} 
                                 spy={true}
@@ -108,18 +108,18 @@ const Navbar  = ({toggle}) => {
                                 spy={true}
                                 exact='true'
                                 offset={-80}
-                            >MojePorudzbine
+                            >Porudzbine
                             </NavLinks>
                         </NavItem>
                         <NavItem>
                             <NavLinks 
-                                as={Link} to="/changePassword" 
+                                as={Link} to="/mojeElasticPorudzbine" 
                                 smooth={true} 
                                 duration={500} 
                                 spy={true}
                                 exact='true'
-                                offset={-80}
-                            >ChangePass
+                                offset={-80}  
+                            >ElasticPorudzbine
                             </NavLinks>
                         </NavItem>
                         {TokenService.getToken() ? (
@@ -152,17 +152,6 @@ const Navbar  = ({toggle}) => {
                                 exact='true'
                                 offset={-80}>
                                 Home
-                            </NavLinks>
-                        </NavItem>
-                        <NavItem>
-                            <NavLinks 
-                                as={Link} to="/changePassword" 
-                                smooth={true} 
-                                duration={500} 
-                                spy={true}
-                                exact='true'
-                                offset={-80}>
-                                ChangePass
                             </NavLinks>
                         </NavItem>
                         <NavItem>

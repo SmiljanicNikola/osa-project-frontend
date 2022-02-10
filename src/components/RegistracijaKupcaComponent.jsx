@@ -52,7 +52,7 @@ saveKupac = (e) =>{
         console.log('Kupac => ' + JSON.stringify(kupac));
 
         KorisnikService.createKupac(kupac).then(res=>{
-            this.props.history.push('/api/korisnici/kupac')
+            this.props.history.push('/login')
         });
     }
 }

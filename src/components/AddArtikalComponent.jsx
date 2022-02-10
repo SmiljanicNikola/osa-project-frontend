@@ -123,8 +123,10 @@ cancel(){
                                             value={this.state.putanjaSlike} onChange={this.changePutanjaSlike}/>       
                                     </div>
                                     
-        
-                                    <button className="btn btn-success" onClick={this.saveArtikal}>Dodaj</button>
+                                    <center>
+                                    <button className="btn btn-success" onClick={this.saveArtikal} style={{marginTop:'15px'}}>Dodaj</button>
+                                    </center>
+
                                 </form>
                             </div>
                         </div>

@@ -12,6 +12,8 @@ class SviElasticArtikliComponent extends Component {
             inputMinCena:0,
             inputMaxCena:99999
         }
+        this.addArtikalElastic = this.addArtikalElastic.bind(this);
+
     } 
 
     componentDidMount(){

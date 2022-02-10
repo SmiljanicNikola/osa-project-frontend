@@ -28,7 +28,7 @@ class SveElasticPorudzbineComponent extends React.Component {
     }
     ispisiRezultatPoOceni = () => {
         
-        axios.get("http://localhost:8080/porudzbine7/ocena?minOcena="+this.state.inputMinOcena+"&maxOcena="+this.state.inputMaxOcena).then( (res) =>{
+        axios.get("http://localhost:8080/porudzbine4/ocena?minOcena="+this.state.inputMinOcena+"&maxOcena="+this.state.inputMaxOcena).then( (res) =>{
             this.setState({
                 porudzbine:res.data
             });
@@ -36,7 +36,7 @@ class SveElasticPorudzbineComponent extends React.Component {
     }
     ponisti = () => {
         
-        axios.get("http://localhost:8080/porudzbine7/ocena?minOcena=0&maxOcena=5").then( (res) =>{
+        axios.get("http://localhost:8080/porudzbine4/ocena?minOcena=0&maxOcena=5").then( (res) =>{
             this.setState({
                 porudzbine:res.data
             });

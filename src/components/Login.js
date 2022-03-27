@@ -22,7 +22,6 @@ const Login = () => {
     // ali sa ažuriranom vrednošću [name] polja
     setCredentials({ ...credentials, [name]: val });
   };
-
   
   const login = async () => {
     await AuthenticationService.login(credentials);
@@ -36,6 +35,7 @@ const Login = () => {
 
   // JSX nije nužno koristi - ovo je samo deklarativan zapis funkcija koje će React izvesti
   // https://reactjs.org/docs/react-without-jsx.html
+  
   return (
 
     <Container className="card col-md-6 offset-md-3" style={{backgroundColor:' #101522'}}>

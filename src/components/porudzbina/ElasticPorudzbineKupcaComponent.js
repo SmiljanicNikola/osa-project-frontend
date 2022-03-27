@@ -24,27 +24,16 @@ class ElasticPorudzbineKupcaComponent extends React.Component {
                 console.log('ODRADJEN Kupac GETOVANJE');
                 console.log(this.state.idKupca);
 
-            });
-            /*axios.get(`http://localhost:8080/porudzbine4/kupac/${this.state.idKupca}`).then((res) => {
-                this.setState({
-                    porudzbineKupcaElastic:res.data
-                });
-            })*/
-        
+            });  
 
             PorudzbinaService.getPorudzbineElastic().then((response) => {
                 this.setState({porudzbineKupcaElastic:response.data})
                 this.setState({porudzbineKupcaElastic: this.state.porudzbineKupcaElastic.filter(porudzbineKupcaElastic => porudzbineKupcaElastic.kupacId == this.state.idKupca)})
 
             })
-         
 
         }
 
-        /*potvrdiPristiglost(id){
-            PorudzbinaService.potvrdiPristiglostPorudzbine(id);
-        }*/
-    
         recenzirajPorudzbinu(id){
             this.props.history.push(`/recenzirajElasticPorudzbinu/${id}`);
         }
@@ -99,14 +88,11 @@ class ElasticPorudzbineKupcaComponent extends React.Component {
                                         <button onClick={ () => this.recenzirajPorudzbinu(porudzbina.id)} className="btn btn-info" style={{height:'40px',marginLeft:'10px'}}>Recenziraj</button>
                                         :
                                         ""
-                                        }
-                                        
-                                       
+                                        }        
                                     </td>
 
                                     </tr>
                                 )
-    
                             }
                         </tbody>
                     </table>

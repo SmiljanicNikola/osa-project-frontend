@@ -13,6 +13,7 @@ class UpdateArtikalComponent extends Component {
             cena: '',
             putanjaSlike:'',
         }
+
         this.changeNazivHandler = this.changeNazivHandler.bind(this);
         this.changeOpisHandler = this.changeOpisHandler.bind(this);
         this.changeCenaHandler = this.changeCenaHandler.bind(this);
@@ -42,10 +43,7 @@ updateArtikal = (e) =>{
         console.log('Artikal => ' + JSON.stringify(artikal));
         ArtikalService.updateArtikal(artikal, this.state.id).then(res => {
             this.props.history.push('/artikli');
-        });
-
-
-        
+        });     
 }
 
 changeNazivHandler= (event) =>{
@@ -88,11 +86,13 @@ cancel(){
                                         <input placeholder="Opis" name="opis" className="form-control"
                                             value={this.state.opis} onChange={this.changeOpisHandler}/>
                                     </div>
+
                                     <div className="form-group">
                                         <label>Cena</label>
                                         <input placeholder="Cena" name="cena" className="form-control"
                                             value={this.state.cena} onChange={this.changeCenaHandler}/>      
                                     </div>
+
                                     <div className="form-group">
                                         <label>Putanja slike</label>
                                         <input placeholder="Putanja Slike" name="putanjaSlike" className="form-control"
@@ -109,7 +109,6 @@ cancel(){
             </div>
         )
     }
-
 }
 
 export default UpdateArtikalComponent

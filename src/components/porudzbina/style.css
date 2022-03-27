@@ -9,9 +9,11 @@
     margin-left: 5px;
 
 }
+
 p{
     font-size: 17px;
 }
+
 .green-bg-button{
     background-color:#5cb85c;
     height: fit-content;
@@ -20,6 +22,7 @@ p{
     font-size: 15px;
     width: 100px;
 }
+
 .red-bg-button{
     background-color: rgb(217, 83, 79);
     height: fit-content;
@@ -28,9 +31,11 @@ p{
     font-size: 15px;
     width: 100px;
 }
+
 table tbody tr{
     height: 40px;
 }
+
 .dugmici{
     display: flex;
     flex-direction: row;

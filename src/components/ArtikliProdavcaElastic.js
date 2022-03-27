@@ -16,6 +16,7 @@ class ArtikliProdavcaElastic extends React.Component {
             username: AuthenticationService.getUsername(),
             idProdavca: ''
         }
+
         this.addArtikalElastic = this.addArtikalElastic.bind(this);
 
     } 
@@ -32,7 +33,6 @@ class ArtikliProdavcaElastic extends React.Component {
             this.setState({artikli: response.data})
             this.setState({artikli: this.state.artikli.filter(artikli => artikli.prodavacId == this.state.idProdavca)})
         });
-       
     }
 
     ispisiRezultat = () => {
@@ -111,7 +111,6 @@ class ArtikliProdavcaElastic extends React.Component {
 
                </div>
 
-
                 <table className="table table-striped" style={{marginTop:'25px'}}>
                     <thead>
                         <tr>
@@ -121,7 +120,6 @@ class ArtikliProdavcaElastic extends React.Component {
                             <td>Cena</td>
                             <td>Putanja Slike</td>
                             <td>Akcije</td>
-
                         </tr>
                     </thead>
                     <tbody>

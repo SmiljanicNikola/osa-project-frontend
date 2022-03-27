@@ -13,6 +13,7 @@ class UpdateUserComponent extends Component {
             username: '',
             password:'',
         }
+
         this.changeImeHandler = this.changeImeHandler.bind(this);
         this.changePrezimeHandler = this.changePrezimeHandler.bind(this);
         this.changeUsernameHandler = this.changeUsernameHandler.bind(this);
@@ -88,6 +89,7 @@ cancel(){
                                         <input placeholder="Prezime" name="prezime" className="form-control"
                                             value={this.state.prezime} onChange={this.changePrezimeHandler}/>
                                     </div>
+                                    
                                     <div className="form-group">
                                         <label>Username</label>
                                         <input placeholder="Username" name="username" className="form-control"

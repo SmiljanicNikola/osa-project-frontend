@@ -10,11 +10,13 @@ class RecenzirajPorudzbinuComponent extends Component {
             komentar:'',
             ocena:''
         }
+
         this.changeKomentarHandler = this.changeKomentarHandler.bind(this);
         this.changeOcenaHandler = this.changeOcenaHandler.bind(this);
-
         this.recenzirajPorudzbinu = this.recenzirajPorudzbinu.bind(this);
+
     }
+
     componentDidMount(){
         PorudzbinaService.getPorudzbinaById(this.state.id).then((res) => {
             let porudzbina = res.data;
@@ -33,8 +35,8 @@ class RecenzirajPorudzbinuComponent extends Component {
         let porudzbina={komentar:this.state.komentar, ocena:this.state.ocena}
         PorudzbinaService.recenzirajPorudzbinu(porudzbina, this.state.id).then(res => {
             this.props.history.push('/mojePorudzbine')
-        })
-    }
+            })
+        }
     }
 
     changeKomentarHandler= (event) =>{
@@ -45,6 +47,7 @@ class RecenzirajPorudzbinuComponent extends Component {
         this.setState({ocena: event.target.value});
         
     }
+
     render(){
         return(
             <div>
@@ -54,6 +57,7 @@ class RecenzirajPorudzbinuComponent extends Component {
                             <h3 className="text-center" style={{marginTop:'15px'}}>Ostavi recenziju</h3>
                             <div className="card-body">
                                 <form>
+
                                     <div className="form-group" style={{marginTop:'15px'}}>
                                         <label>Komentar</label>
                                         <input placeholder="Komentar" name="komentar" className="form-control"
@@ -69,6 +73,7 @@ class RecenzirajPorudzbinuComponent extends Component {
                                     <center>
                                     <button className="btn btn-success" onClick={this.recenzirajPorudzbinu} style={{marginTop:'15px'}}>Recenziraj</button>
                                     </center>
+
                                 </form>
                             </div>
                         </div>
@@ -77,7 +82,6 @@ class RecenzirajPorudzbinuComponent extends Component {
             </div>
         )
     }
-
 }
  
 export default RecenzirajPorudzbinuComponent;

@@ -4,8 +4,6 @@ import KorisnikService from '../services/KorisnikService'
 import ProdavacService from '../services/ProdavacService'
 import { AuthenticationService } from "../services/AuthenticationService";
 
-
-
 class ArtikalComponent extends React.Component{
 
     constructor(props){
@@ -101,7 +99,6 @@ class ArtikalComponent extends React.Component{
             </div>
         )
     }
-
 }
 
 export default ArtikalComponent

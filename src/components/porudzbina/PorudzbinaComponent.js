@@ -15,6 +15,7 @@ class SvePorudzbineComponent extends Component {
             this.setState({porudzbine: response.data})
         });
     }
+
     render() { 
         return (
             <div>
@@ -57,7 +58,6 @@ class SvePorudzbineComponent extends Component {
 
                                 </tr>
                             )
-
                         }
                     </tbody>
                 </table>

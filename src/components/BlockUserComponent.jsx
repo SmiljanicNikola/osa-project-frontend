@@ -13,6 +13,7 @@ class BlockUserComponent extends Component {
             username: '',
             password:'',
         }
+        
         this.changeImeHandler = this.changeImeHandler.bind(this);
         this.changePrezimeHandler = this.changePrezimeHandler.bind(this);
         this.changeUsernameHandler = this.changeUsernameHandler.bind(this);
@@ -105,7 +106,6 @@ cancel(){
             </div>
         )
     }
-
 }
 
 export default BlockUserComponent

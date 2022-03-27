@@ -27,6 +27,7 @@ class AddArtikalComponent extends Component {
 
         this.saveArtikal = this.saveArtikal.bind(this);
 }
+
     componentDidMount(){
     this.state.username = AuthenticationService.getUsername();
 
@@ -48,7 +49,6 @@ class AddArtikalComponent extends Component {
         });
         console.log(this.state.idProdavca);
     });
-
 
 }
     
@@ -135,7 +135,6 @@ cancel(){
             </div>
         )
     }
-
 }
 
 export default AddArtikalComponent

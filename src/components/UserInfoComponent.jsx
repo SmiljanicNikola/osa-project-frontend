@@ -2,8 +2,6 @@ import React from 'react'
 import { AuthenticationService } from "../services/AuthenticationService";
 import KorisnikService from '../services/KorisnikService';
 
-
-
 class UserInfoComponent extends React.Component{
 
     constructor(props){
@@ -22,8 +20,7 @@ class UserInfoComponent extends React.Component{
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
                 
-            }
-            
+            }  
         };
         KorisnikService.getKorisnike().then((response) =>{
             this.setState({
@@ -39,11 +36,8 @@ class UserInfoComponent extends React.Component{
    
     render(){
         return (
-            
             <div>
                 <h1 className="text-center"> My info </h1>
-                {/* <button className="btn btn-primary" >Login</button>
-                <button className="btn btn-primary" onClick={this.addUser}>Register</button> */}
                 <div className="row">
                 {AuthenticationService.getRole()};
                 </div>
@@ -54,8 +48,6 @@ class UserInfoComponent extends React.Component{
                             <td>Prezime</td>
                             <td>Username</td>
                             <td>Actions</td>
-
-                           
                         </tr>
                     </thead>
 
@@ -70,20 +62,18 @@ class UserInfoComponent extends React.Component{
                                     <td>{korisnik.username}</td>
                                     <td>
                                         <button onClick={ () => this.editKorisnik(korisnik.id)} className="btn btn-info">Update</button>
-                                    
                                     </td>
                                 </tr>
                             )
 
                         }
+
                     </tbody>
 
                 </table>
-
             </div>
         )
     }
-
 }
 
 export default UserInfoComponent

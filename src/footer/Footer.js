@@ -21,12 +21,6 @@ const footer1Config = [{
     link: '/'
 }];
 
-{/* <FooterLink to="/signin">How it works</FooterLink>
-                                <FooterLink to="/signin">Testimonials</FooterLink>
-                                <FooterLink to="/signin">Careers</FooterLink>
-                                <FooterLink to="/signin">Investors</FooterLink>
-                                <FooterLink to="/signin">Terms of Service</FooterLink> */}
-
 const Footer = () => {
 
     const toggleHome = () => {

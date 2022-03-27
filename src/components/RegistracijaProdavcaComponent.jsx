@@ -159,28 +159,33 @@ cancel(){
                                             value={this.state.poslujeOd} onChange={this.changePoslujeOdHandler}/>
     
                                     </div>
+
                                     <div className="form-group">
                                         <label>Email:</label>
                                         <input placeholder="Email" name="email" className="form-control"
                                             value={this.state.email} onChange={this.changeEmailHandler}/>
     
                                     </div>
+
                                     <div className="form-group">
                                         <label>Adresa:</label>
                                         <input placeholder="Adresa" name="adresa" className="form-control"
                                             value={this.state.adresa} onChange={this.changeAdresaHandler}/>
     
                                     </div>
+
                                     <div className="form-group">
                                         <label>Naziv:</label>
                                         <input placeholder="Naziv" name="naziv" className="form-control"
                                             value={this.state.naziv} onChange={this.changeNazivHandler}/>
     
                                     </div>
+
                                     <center>
                                         <button className="btn btn-success" onClick={this.saveProdavac} style={{marginTop:'20px'}}>Save</button>
                                         <button className="btn btn-danger" onClick={this.cancel} style={{marginTop:'20px', marginLeft:'10px'}}>Cancel</button>
                                     </center>
+                                    
                                 </form>
                             </div>
                         </div>
@@ -189,7 +194,6 @@ cancel(){
             </div>
         )
     }
-
 }
 
 export default RegistracijaKupcaComponent

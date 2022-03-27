@@ -18,16 +18,16 @@ class HomeComponent extends React.Component{
 
         } 
     }
+
     componentDidMount(){
         this.state.username = AuthenticationService.getUsername();
 
         const config = {
             headers: {
-                Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
-                
-            }
-            
+                Authorization: 'Bearer ' + localStorage.getItem('accessToken'),    
+            }   
         };
+
         axios.get('http://localhost:8080/api/korisnici/username', config).then(
             res => {
                 this.setState({
@@ -57,6 +57,7 @@ class HomeComponent extends React.Component{
             });
     
         });
+
         if(AuthenticationService.getRole == 'ROLE_PRODAVAC'){
         axios.get(`http://localhost:8080/api/prodavci/username/${this.state.username}`).then( (res) =>{
             let prodavac = res.data;
@@ -74,9 +75,9 @@ class HomeComponent extends React.Component{
             this.setState({
                 adresa: kupac.adresa,
                 
+                });
             });
-        });
-    }
+        }
     }
 
     preusmeri = (e) =>{
@@ -91,36 +92,37 @@ class HomeComponent extends React.Component{
 
     render(){
         return (
-    <div className="body">
-        <div className="container" style={{backgroundColor:' #101522'}}>
-             <div className="card col-md-6 offset-md-3" >
-                 <h2 className="text-center" style={{marginTop:'20px'}}>Logged user details:</h2>
-                 
-                <div className="text-center" style={{marginTop:"8px"}}>
-                <div className="row">
-                    <label style={{color:"black", fontWeight:"600"}}>Username : {AuthenticationService.getUsername()}</label>
-                </div><br></br>
-                <div className="row">
-                    <label style={{color:"black", fontWeight:"600"}}>Role : {AuthenticationService.getRole()}</label>
-                </div><br></br>
-                <div className="row">
-                    <label style={{color:"black", fontWeight:"600"}}>Ime : {this.state.ime}</label>
-                </div><br></br>
-                <div className="row">
-                    <label style={{color:"black", fontWeight:"600"}}>Prezime : {this.state.prezime}</label>
-                </div><br></br>
-                <br></br>
-                <button className="btn btn-warning" style={{marginBottom:'30px'}} onClick={this.preusmeri} >Promeni podatke</button>
-                <button className="btn btn-danger" style={{marginBottom:'30px',marginLeft:'15px'}} onClick={this.preusmeriPromenaLozinke} >Promeni lozinku</button>
-            </div>
-        </div>    
-        </div>   
-    </div>  
-        )
+            <div className="body">
+                <div className="container" style={{backgroundColor:' #101522'}}>
+                    <div className="card col-md-6 offset-md-3" >
+                        <h2 className="text-center" style={{marginTop:'20px'}}>Logged user details:</h2>
+                        
+                        <div className="text-center" style={{marginTop:"8px"}}>
+                        <div className="row">
+                            <label style={{color:"black", fontWeight:"600"}}>Username : {AuthenticationService.getUsername()}</label>
+                        </div><br/>
+
+                        <div className="row">
+                            <label style={{color:"black", fontWeight:"600"}}>Role : {AuthenticationService.getRole()}</label>
+                        </div><br/>
+
+                        <div className="row">
+                            <label style={{color:"black", fontWeight:"600"}}>Ime : {this.state.ime}</label>
+                        </div><br/>
+
+                        <div className="row">
+                            <label style={{color:"black", fontWeight:"600"}}>Prezime : {this.state.prezime}</label>
+                        </div>
+
+                        <br/><br/>
+                        
+                        <button className="btn btn-warning" style={{marginBottom:'30px'}} onClick={this.preusmeri} >Promeni podatke</button>
+                        <button className="btn btn-danger" style={{marginBottom:'30px',marginLeft:'15px'}} onClick={this.preusmeriPromenaLozinke} >Promeni lozinku</button>
+                    </div>
+                </div>    
+                </div>   
+            </div>  
+            )
         }
-
-
-
-
     }
 export default HomeComponent

@@ -52,12 +52,10 @@ class SviArtikliComponent extends React.Component {
                                     </td>
                                 </tr>
                             )
-
                         }
                     </tbody>
                 </table>
-            </div>
-            
+            </div>       
         );
     }
 }

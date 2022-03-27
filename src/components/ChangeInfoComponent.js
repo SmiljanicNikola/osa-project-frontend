@@ -22,11 +22,14 @@ class ChangeInfoComponent extends Component {
             rola: ''
 
         }
+
         this.changeImeHandler = this.changeImeHandler.bind(this);
         this.changePrezimeHandler = this.changePrezimeHandler.bind(this);
         this.changeAdresaHandler = this.changeAdresaHandler.bind(this);
         this.changeEmailHandler = this.changeEmailHandler.bind(this);
+
     }
+
     componentDidMount(){
         const user = AuthenticationService.getUsername();
         const role = AuthenticationService.getRole();
@@ -65,8 +68,10 @@ class ChangeInfoComponent extends Component {
             console.log('ODRADJEN KUPAC GETOVANJE');
         });
     }
+
     console.log(this.state.rola)
-    }
+
+}
 
      updateInfo = (e) =>{
         e.preventDefault();
@@ -90,18 +95,23 @@ class ChangeInfoComponent extends Component {
             
         
     }
+
     changeImeHandler = (event) =>{
         this.setState({ime: event.target.value});
     }
+
     changePrezimeHandler = (event) =>{
         this.setState({prezime: event.target.value});
     }
+
     changeEmailHandler = (event) =>{
         this.setState({email: event.target.value});
     }
+
     changeAdresaHandler = (event) =>{
         this.setState({adresa: event.target.value});
     }
+    
     render() { 
         return(
             <div>

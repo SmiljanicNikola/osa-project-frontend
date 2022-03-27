@@ -13,11 +13,13 @@ class RecenzirajPorudzbinuComponent extends Component {
             anonimanKomentar:'',
             arhiviranKomentar:''
         }
+
         this.changeKomentarHandler = this.changeKomentarHandler.bind(this);
         this.changeOcenaHandler = this.changeOcenaHandler.bind(this);
-
         this.recenzirajElasticPorudzbinu = this.recenzirajElasticPorudzbinu.bind(this);
+
     }
+
     componentDidMount(){
         PorudzbinaService.getElasticPorudzbinaById(this.state.id).then((res) => {
             let porudzbina = res.data;
@@ -45,8 +47,8 @@ class RecenzirajPorudzbinuComponent extends Component {
         console.log(porudzbina);
         PorudzbinaService.createPorudzbinaElastic(porudzbina).then(res => {
             this.props.history.push('/mojeElasticPorudzbine')
-        })
-    }
+            })
+        }
     }
 
     changeKomentarHandler= (event) =>{
@@ -57,6 +59,7 @@ class RecenzirajPorudzbinuComponent extends Component {
         this.setState({ocena: event.target.value});
         
     }
+
     render(){
         return(
             <div>
@@ -65,7 +68,9 @@ class RecenzirajPorudzbinuComponent extends Component {
                         <div className="card col-md-6 offset-md-3 offset-md-3">
                             <h3 className="text-center" style={{marginTop:'15px'}}>Ostavi recenziju</h3>
                             <div className="card-body">
+
                                 <form>
+
                                     <div className="form-group" style={{marginTop:'15px'}}>
                                         <label>Komentar</label>
                                         <input placeholder="Komentar" name="komentar" className="form-control"
@@ -81,7 +86,9 @@ class RecenzirajPorudzbinuComponent extends Component {
                                     <center>
                                     <button className="btn btn-success" onClick={this.recenzirajElasticPorudzbinu} style={{marginTop:'15px'}}>Recenziraj</button>
                                     </center>
+
                                 </form>
+                                
                             </div>
                         </div>
                     </div>
@@ -89,7 +96,6 @@ class RecenzirajPorudzbinuComponent extends Component {
             </div>
         )
     }
-
 }
  
 export default RecenzirajPorudzbinuComponent;

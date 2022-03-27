@@ -14,6 +14,7 @@ class RegistracijaKupcaComponent extends Component {
             adresa: '',
             repeatPassword: '',
         }
+
         this.changeImeHandler = this.changeImeHandler.bind(this);
         this.changePrezimeHandler = this.changePrezimeHandler.bind(this);
         this.changeUsernameHandler = this.changeUsernameHandler.bind(this);
@@ -104,39 +105,31 @@ cancel(){
                                     <div className="form-group">
                                         <label>Prezime:</label>
                                         <input placeholder="Prezime" name="prezime" className="form-control"
-                                            value={this.state.prezime} onChange={this.changePrezimeHandler}/>
-
-                                            
+                                            value={this.state.prezime} onChange={this.changePrezimeHandler}/>       
                                     </div>
 
                                     <div className="form-group">
                                         <label>Username:</label>
                                         <input placeholder="Username" name="username" className="form-control"
-                                            value={this.state.username} onChange={this.changeUsernameHandler}/>
-
-                                            
+                                            value={this.state.username} onChange={this.changeUsernameHandler}/>     
                                     </div>
 
                                     <div className="form-group">
                                         <label>Password</label>
                                         <input placeholder="Password" name="password" type="password" className="form-control"
-                                            value={this.state.password} onChange={this.changePasswordHandler}/>
-
-                                            
+                                            value={this.state.password} onChange={this.changePasswordHandler}/> 
                                     </div>
+
                                     <div className="form-group">
                                         <label>Ponovljen password:</label>
                                         <input placeholder="Ponovljen password" name="repeatPassword" type="password" className="form-control"
                                             value={this.state.repeatPassword} onChange={this.changerepeatPasswordHandler}/>
-    
                                     </div>
-
 
                                     <div className="form-group">
                                         <label>Adresa:</label>
                                         <input placeholder="Adresa" name="adresa" className="form-control"
                                             value={this.state.adresa} onChange={this.changeAdresaHandler}/>
-    
                                     </div>
                             
                                     <center>
@@ -151,7 +144,6 @@ cancel(){
             </div>
         )
     }
-
 }
 
 export default RegistracijaKupcaComponent

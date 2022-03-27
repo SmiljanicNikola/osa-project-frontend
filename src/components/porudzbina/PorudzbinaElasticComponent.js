@@ -108,7 +108,6 @@ class SveElasticPorudzbineComponent extends React.Component {
                                         "Ne"
                                     }</td>
                                 
-
                                 </tr>
                             )
                         }

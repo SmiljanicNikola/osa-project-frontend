@@ -3,8 +3,6 @@ import { AuthenticationService } from "../services/AuthenticationService";
 import KorisnikService from '../services/KorisnikService';
 import ProdavacService from '../services/ProdavacService';
 
-
-
 class ProdavciComponent extends React.Component{
 
     constructor(props){
@@ -13,6 +11,7 @@ class ProdavciComponent extends React.Component{
             username: AuthenticationService.getUsername(),
             prodavci:[],
         }
+
         this.viewArtikle = this.viewArtikle.bind(this);
 
     }
@@ -36,15 +35,11 @@ class ProdavciComponent extends React.Component{
 
     }
 
-    
-   
     render(){
         return (
             
             <div>
                 <h1 className="text-center"> Prodavci List </h1>
-                {/* <button className="btn btn-primary" >Login</button>
-                <button className="btn btn-primary" onClick={this.addUser}>Register</button> */}
                 <div className="row">
                   
                 </div>
@@ -58,9 +53,7 @@ class ProdavciComponent extends React.Component{
                             <td>Email</td>
                             <td>Adresa</td>
                             <td>Naziv</td>
-                            <td>Actions</td>
-
-                           
+                            <td>Actions</td>  
                         </tr>
                     </thead>
 
@@ -79,11 +72,9 @@ class ProdavciComponent extends React.Component{
                                     <td>{prodavac.naziv}</td>
                                     <td>
                                         <button onClick={ () => this.viewArtikle(prodavac.id)} className="btn btn-info">Pregled artikala</button>
-                                    
                                     </td>
                                 </tr>
                             )
-
                         }
                     </tbody>
 
@@ -92,7 +83,6 @@ class ProdavciComponent extends React.Component{
             </div>
         )
     }
-
 }
 
 export default ProdavciComponent

@@ -87,7 +87,6 @@ class PorudzbineKupcaComponent extends Component {
                                     </td>
                                 </tr>
                             )
-
                         }
                     </tbody>
                 </table>

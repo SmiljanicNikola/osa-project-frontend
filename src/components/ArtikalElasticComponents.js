@@ -12,6 +12,7 @@ class SviElasticArtikliComponent extends Component {
             inputMinCena:0,
             inputMaxCena:99999
         }
+
         this.addArtikalElastic = this.addArtikalElastic.bind(this);
 
     } 
@@ -56,12 +57,6 @@ class SviElasticArtikliComponent extends Component {
             <div>
                 <h3 className="text-center"> Artikli </h3>
 
-                {/*<div className="center-search-bar">
-                    <p>Pretraga po nazivu:</p><input 
-                    value={this.state.inputNaziv} 
-                    onChange={(e) => this.setState({inputNaziv: e.target.value})} />
-                    <button onClick={this.ispisiRezultat} className='green-bg-button'>Pretrazi</button>
-                </div>*/}
                  <div className="center-search-bar" style={{marginTop:'40px'}}>
                    
                    <p style={{marginLeft:'30px',fontWeight:'600'}}>Po Nazivu:</p>
@@ -90,7 +85,6 @@ class SviElasticArtikliComponent extends Component {
 
                </div>
 
-
                 <table className="table table-striped" style={{marginTop:'25px'}}>
                     <thead>
                         <tr>
@@ -99,7 +93,6 @@ class SviElasticArtikliComponent extends Component {
                             <td>Opis</td>
                             <td>Cena</td>
                             <td>Putanja Slike</td>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -117,7 +110,6 @@ class SviElasticArtikliComponent extends Component {
                         }
                     </tbody>
                 </table>
-
             </div>
         );
     }

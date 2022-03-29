@@ -1,70 +1,63 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<b>NAPOMENA: Na ovom repozitorijumu se nalazi samo Frontend, backend koji je radjen u Spring Boot-u se nalazi u zasebnom repozitorijumu i mozete ga pronaci ovde:</b> https://github.com/SmiljanicNikola/OSA-Project
 
-### `npm test`
+<b>Opis i specifikacija projekta:</b>
+<br>U pitanju je <b>Java Spring Boot (Backend) i React (Frontend)</b> aplikacija, za cuvanje neophodnih podataka koriscen je <b>MySQL</b> (Sav potreban kod za kreiranje i punjenje svake tabele bice okacen u data.sql fajlu).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<b>Korisnik aplikacije ima na raspolaganju sledeću funkcionalnost:</b>
 
-### `npm run build`
+<b>[A1] Registracija korisnika.</b> Prilikom registracije na sistem osim korisničkih podataka,
+korisnik bira i ulogu (<b>Prodavac ili Kupac</b>). Administrator je predefinisani korisnik koji
+postoji u sistemu.Takodje prilikom registracije korisnika, lozinka koju korisnik unese se u bazi 
+podataka ne skladisti kao plain text vec treba biti sifrovana.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<b>[A2] Prijava i odjava sa sistema</b>. U okviru ove aktivnosti korisniku je omogućena
+prijava na sistem. Pored prikaza forme za unos kredencijala, na istom prikazu uključiti
+i link za prelaz na formu za registraciju. U okviru aplikacije podržati opciju za odjavu.
+Podržati autentifikaciju korisnika upotrebom korisničkog imena i lozinke i <b>autorizaciju 
+korisnika upotrebom mehanizma tokena</b>.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<b>[A3] Ažuriranje liste artikala (Kao i brisanje i dodavanje)</b>. Obezbediti prodavcima prikaz svih njihovih artikala. U
+okviru ovog prikaza prodavac ima mogućnost da odabere neku od opcija - <b>ažuriranje</b>
+ili <b>brisanje pojedinačnih artikala</b>. Klikom na dugme za brisanje artikla se isti uklanja sa
+prikaza svih artikala, dok klikom na dugme za ažuriranje artikla prodavac biva
+preusmeren na posebnu aktivnost za ažuriranje istog. Ažuriranje pojedinačnog artikla
+realizovati kroz mehanizam popunjene forme, gde je svaki od podataka artikla moguće
+izmeniti. Prodavci imaju mogućnost <b>dodavanja novih artikala</b>, gde se unose svi podaci
+vezani za artikle. Nakon dodavanja novog artikla, vratiti prodavca na prikaz svih njegovih artikala.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<b>[A4] Promena lozinke i ličnih podataka</b>. Po uspešnoj promeni lozinke, korisnik se redirektuje na stranicu sa svojim 
+profilom.
 
-### `npm run eject`
+<b>[A5] Pregled i blokiranje korisnika </b>. Administratori imaju mogućnost pregleda svih 
+korisnika, kao i blokiranja pojedinačnih korisnika. Blokirani korisnici nemaju pristup 
+aplikaciji (onemogućiti njihovu prijavu na sistem).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<b>[A6] Ostavljanje komentara i recenzija</b>. Korisnik može da pregleda sve svoje nedostavljene 
+porudžbine i označi one koje su stigle. Nakon isporučene porudžbine, kupac ima 
+mogućnost ostavljanja recenzije na sve prispele i neocenjene porudžbine. Izborom 
+jedne konkretne porudžbine, kupac ima <b>mogućnost ostavljanja komentara u slobodnoj 
+formi kao i ocene (1-5)</b> pri čemu su oba podatka (i komentar i ocena) obavezni.
+<hr>
+ElasticSearch je koriscen za implementaciju indeksiranja i pretraživanja artikala i 
+porudžbina.
+<br><b>Dodatne funkcionalnosti koje su vezane za ElasticSearch:</b>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<br><b>[A7] Pretraga liste artikala</b>
+<br>• Pretraživanje artikala po nazivu,
+<br>• Pretraga artikala po opsegu cena (od-do), gde može biti zadata donja i/ili 
+gornja granica opsega,
+<b><br> • Pretprocesirati upit, tako da bude nezavisan od velikog i malog slova, kao i 
+ćiriličnog ili latiničnog pisma</b>
+  
+<b>[A8] Pretraga porudžbina</b>
+<br>• Pretraživanje porudžbina po sadržaju komentara
+<br>• Pretraživanje porudžbina po opsegu ocena (od-do), gde može biti zadata 
+donja i/ili gornja granica opsega,
+<b><br>• Pretprocesirati upit, tako da bude nezavisan od velikog i malog slova, kao i 
+ćiriličnog ili latiničnog pisma</b>
+<br>

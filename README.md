@@ -1,6 +1,6 @@
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.<br/>
-<b>NOTE: This repository contains only FRONTEND part, BACKEND developed in Java Spring Boot is stored in another repository and you can find it here:</b> https://github.com/SmiljanicNikola/OSA-Project
+<b>NOTE: This repository contains only FRONTEND part, BACKEND developed in Java Spring Boot is stored in another repository and you can find it here:</b> https://github.com/SmiljanicNikola/osa-project-backend
 <hr>
 <b>Description and project specification:</b>
 <br>This is <b>Java Spring Boot (Backend) and React (Frontend)</b> application, for storing data I used <b>MySQL</b> (All the necessary SQL queries for creating and loading each table will be published in the data.sql file).
